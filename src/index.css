@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap');
+
+:root {
+    --blue: #0188DF;
+    --black: #354046;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none !important;
+    outline: none !important;
+    text-decoration: none !important;
+    text-transform: capitalize;
+    font-weight: 400;
+    transition: all .2s linear;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+ul, li, a {
+    color: rgb(242, 241, 246) !important;
+    margin-top: 5px;
+}
+
+ul, li, a:hover {
+    color: rgb(65, 46, 243) !important;
+}
+
+.navbar {
+    background-image: linear-gradient(to right, #0c3057, #050835);
+    padding: 0 !important;
+}
+
+#gayab {
+    padding-left: 45px;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#navbarNav {
+    padding-right: 55px;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+
+    .navbar-toggler {
+        color: #e8e7f1;
+    }
+
+    #gayab {
+        font-size: 25px; /* Adjust logo size for mobile screens */
+    }
+
+    #navbarNav {
+        padding-right: 15px; /* Reduce padding for mobile */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1.5rem; /* Adjust font size for nav links */
+    }
+}

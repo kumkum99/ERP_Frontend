@@ -1,0 +1,107 @@
+/* Ensure the sidebar is positioned correctly */
+.d-flex {
+    display: flex;
+    margin-top: 15px !important;
+
+  }
+  
+  main {
+    margin-left: 300px; 
+    margin-right:50px;/* Adjust based on the width of the sidebar */
+    width: calc(100% - 200px); /* Ensure the main content width adjusts accordingly */
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+  
+  /* Card Width */
+  .card-width {
+    width: 100% !important; /* Ensure the card takes full width of its column */
+    height: 140% !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+    border-radius: 10px; /* Optional: smooth the corners */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.card-width:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+}
+
+  
+  /* Chart Container */
+  .chart-container {
+    margin-top: 30px !important;
+    width: 90% !important; /* Ensure the chart container takes full width of its column */
+    border: 1px solid #dee2e6; /* Light border color */
+    border-radius: 8px; /* Optional: rounded corners */
+    padding: 35px; /* Optional: spacing inside the border */
+    background-color: #fff; /* Optional: background color to ensure contrast */
+  }
+  
+  @media (max-width: 768px) {
+    .card-width {
+      margin-bottom: 1rem; /* Adjust spacing for smaller screens */
+    }
+  }
+  .chart-container {
+    width: 90%; /* Ensure the chart container takes full width of its column */
+    height: 250px; /* Adjust height as needed */
+    margin-top:35px !important; /* Remove padding inside the container if needed */
+  }
+  .chart-card {
+    width: 90%; /* Full width of its column */
+  }
+  
+  
+  .card-header {
+    background-color: #f8f9fa;
+    font-size: 25px !important;
+    font-weight: bold !important; /* Optional: Adjust card header background color */
+  }
+
+  .mb-4{
+    margin-top:4.5rem !important;
+  }
+
+  .card-text{
+    text-align: center !important;
+  
+  }
+  .card-employees {
+    background-color: #025a05 !important; /* Green */
+    color: white !important; /* Text color */
+  }
+  
+  .card-orders {
+    background-color: #e57d0e !important; /* Orange */
+    color: white !important;
+  }
+  
+  .card-sales {
+    background-color: #0a3a60 !important; /* Blue */
+    color: white !important;
+  }
+  
+  .card-alert {
+    background-color: #9d160c !important; /* Red */
+    color: white !important;
+  }
+
+  .card-body .card-text {
+ font-size:medium;
+ color: white;
+ font-weight: 900;
+  }
+
+  .card-body{
+    margin-top: 20px !important;
+  }
+  .card-title h5{
+    font-size: x-large !important;
+  }
+
+  

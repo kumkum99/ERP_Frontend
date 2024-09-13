@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+
+
+::selection {
+  color: #fff;
+  background: rgb(13, 98, 254);
+}
+
+.Signup-Container{
+  background-image: url('../assets/images/bg.avif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center; /* Center both horizontally and vertically */
+  height: 100vh;
+
+
+}
+.sumit-container {
+  width: 420px;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 50px 35px 10px 35px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  
+}
+
+.sumit-container header {
+  font-size: 35px;
+  font-weight: 600;
+  margin: 0 0 30px 0;
+}
+
+.sumit-container .sumit-form-outer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sumit-container .sumit-form-outer form {
+  display: flex;
+  width: 400%;
+}
+
+.sumit-form-outer form .sumit-page {
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.sumit-form-outer form .sumit-page .sumit-title {
+  text-align: left;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.sumit-form-outer form .sumit-page .sumit-field {
+  width: 330px;
+  height: 45px;
+  margin: 45px 0;
+  display: flex;
+  position: relative;
+}
+
+.sumit-field .sumit-label {
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+}
+
+.sumit-field input {
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+.sumit-field select {
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.sumit-field button {
+  width: 100%;
+  height: calc(100% + 5px);
+  border: none;
+  background: rgb(13, 98, 254);
+  margin-top: -20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: none !important;
+  transition: 0.5s ease;
+}
+
+.sumit-field button:hover {
+  background: #000;
+}
+
+.sumit-btns button {
+  margin-top: -20px !important;
+}
+
+.sumit-btns .sumit-prev {
+  margin-right: 3px;
+  font-size: 17px;
+}
+
+.sumit-btns .sumit-next {
+  margin-left: 3px;
+}
+
+.sumit-container .sumit-progress-bar {
+  display: flex;
+  margin: 40px 0;
+  user-select: none;
+}
+
+.sumit-progress-bar .sumit-step {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.sumit-progress-bar .sumit-step p {
+  font-weight: 500;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.sumit-step .sumit-bullet {
+  height: 25px;
+  width: 25px;
+  border: 2px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+
+.sumit-step .sumit-bullet.active {
+  border-color: rgb(13, 98, 254);
+  background: rgb(13, 98, 254);
+}
+
+.sumit-step .sumit-bullet span {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.sumit-step .sumit-bullet:before,
+.sumit-step .sumit-bullet:after {
+  position: absolute;
+  content: '';
+  bottom: 11px;
+  right: -51px;
+  height: 3px;
+  width: 44px;
+  background: #262626;
+}
+
+.sumit-step .sumit-bullet.active:after {
+  background: rgb(13, 98, 254);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.sumit-step:last-child .sumit-bullet:before,
+.sumit-step:last-child .sumit-bullet:after {
+  display: none;
+}
+
+.sumit-step .sumit-check {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 1;
+  font-size: 15px;
+  color: #fff;
+}
+
+.sumit-step .sumit-bullet.active ~ .sumit-check {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.sumit-container .sumit-slide-page {
+  margin-left: 0%;
+}
+
+.sumit-progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .sumit-step {
+    text-align: center;
+    position: relative;
+  }
+  
+  .sumit-step .sumit-bullet {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  
+  .sumit-step .sumit-check {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: transparent;
+    font-size: 16px;
+  }
+  
+  .sumit-step.active .sumit-bullet {
+    background-color: #3498db; /* Active bullet color */
+    color: white;
+  }
+  
+  .sumit-step.active .sumit-check.checked {
+    color: white; /* Make check visible when step is completed */
+  }
+  
+  .sumit-step.active .sumit-bullet span {
+    color: white;
+  }
+  
+ 
+  
+ 
+ 
+  .sumit-field input, 
+  .sumit-field select {
+    height: 100%;
+    width: 100%;
+    border: 1px solid gray !important; /* Added !important */
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 18px;
+    box-sizing: border-box;
+  }
+  

@@ -1,0 +1,30 @@
+/* Navbar Styling */
+.navbar-custom {
+    background-color: #0e1265; /* Background color */
+    height: 80px; /* Set the height of the navbar */
+    position: -webkit-sticky; /* For Safari */
+    position: sticky !important; /* For other browsers */
+    top: 0; /* Stick the navbar to the top */
+    z-index: 1000; /* Ensure the navbar stays on top of other content */
+    width: 100%; /* Ensure the navbar takes full width */
+}
+
+.navbar-custom .navbar-brand {
+    height: 100%; /* Ensure the brand takes full height */
+    display: flex;
+    align-items: center; /* Center the brand vertically */
+}
+
+.navbar-custom .nav-link {
+    color: #fff; /* White text color */
+    display: flex;
+    align-items: center; /* Center icons vertically */
+}
+
+.navbar-custom .nav-link:hover {
+    color: #0c0808; /* Lighter color on hover */
+}
+
+.nav-icon {
+    font-size: 20px; /* Size of the icons */
+}
