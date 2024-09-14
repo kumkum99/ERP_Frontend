@@ -11,8 +11,15 @@ import AdminDash from './Dashboard/AdminDash';
 import EmployeeDash from './Dashboard/EmployeeDash';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import ResetPassword from './components/ResetPassword/ResetPassword';
-
-
+import Profile from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/Profile';
+import AttendanceLeave from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/AttendanceLeave';
+import Calendar from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/Calendar';
+import ShiftManagement from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/ShiftManagement';
+import WorkDeadline from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/WorkDeadline';
+import EmployeeProgress from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/EmployeeProgress';
+import CourseMaterial from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/CourseMaterial';
+import EmployeeCourseProgress from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/EmployeeCourseProgress';
+import EmployeeDocumentation from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/EmployeeDocumentation';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -32,7 +39,15 @@ function App() {
                     <Route path="/employeeDashboard" element={<EmployeeDash />} />
                     <Route path="/forgotPassword" element={<ForgotPassword />} />
                     <Route path="/resetPassword/:token" element={<ResetPassword />} />
-                    
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/attenLeave" element={<AttendanceLeave />} />
+                    <Route path="/calendar" element={<Calendar />} />
+                    <Route path="/shifts" element={<ShiftManagement />} />
+                    <Route path="/workDeadline" element={<WorkDeadline />} />
+                    <Route path="/employeeProgress" element={<EmployeeProgress />} />
+                    <Route path="/courseMaterial" element={<CourseMaterial />} />
+                    <Route path="/employeeCourseProgress" element={<EmployeeCourseProgress />} />
+                    <Route path="/employeeDocumentation" element={<EmployeeDocumentation />} />
                    
                 </Routes>  
             </Router>

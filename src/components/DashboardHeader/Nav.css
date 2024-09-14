@@ -31,9 +31,10 @@
 /* Search bar styling */
 .search-bar-form {
     flex-grow: 1;
-    max-width: 200px;
-    display: flex;
+    max-width: 250px;
+    /* display: flex; */
     align-items: center;
+    margin-left: 50px !important;
   }
   
   .search-bar-input {

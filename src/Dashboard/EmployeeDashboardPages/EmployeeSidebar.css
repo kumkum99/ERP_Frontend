@@ -1,6 +1,6 @@
 /* Sidebar Styling */
 .sidebar {
-    width: 300px; /* Fixed width for the sidebar */
+    width: 320px; /* Fixed width for the sidebar */
     background-color: #092542; /* Blue background color */
     color: white; /* White text color */
     height: calc(100vh - 60px); /* Full height minus the height of the navbar */
@@ -38,5 +38,59 @@
     text-align: center;
   }
 
-  
+  /* Dropdown container */
+.dropdown {
+  position: relative; /* Relative position for dropdown */
+}
+
+/* Dropdown toggle button */
+.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: white; /* Ensure text color matches */
+  padding: 0.75rem; /* Added more padding for better spacing */
+  border-radius: 4px; /* Ensure the dropdown toggle has rounded corners */
+}
+
+/* Dropdown icon */
+.dropdown-icon {
+  font-size: 0.9rem; /* Slightly larger dropdown icon */
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  display: none; /* Hide dropdown by default */
+  padding-left: 1.5rem; /* Increased indentation for dropdown items */
+  background-color: #0b0e11; /* Match hover background color */
+  border-radius: 4px; /* Rounded corners */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  position: absolute; /* Absolute position for dropdown menu */
+  width: calc(100% - 1.5rem); /* Full width of dropdown minus the right padding */
+  top: 100%; /* Position below the dropdown toggle */
+  left: 0; /* Align with the left of the dropdown toggle */
+  z-index: 1000; /* Ensure dropdown is on top */
+}
+
+/* Show dropdown menu when active */
+.dropdown.open .dropdown-menu {
+  display: block; /* Show dropdown */
+}
+
+/* Dropdown items */
+.dropdown-menu a {
+  padding: 0.75rem; /* Increased padding inside dropdown items */
+  margin: 0; /* Remove margin */
+  font-size: medium; /* Adjust font size if necessary */
+  color: white; /* Ensure text color matches */
+  display: block; /* Ensure items are displayed block */
+}
+
+/* Dropdown item hover */
+.dropdown-menu a:hover {
+  background-color: #1b2a38; /* Slightly darker background on hover */
+  border-radius: 4px; /* Rounded corners */
+}
   

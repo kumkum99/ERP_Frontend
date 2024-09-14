@@ -1,59 +1,17 @@
-import React from 'react';
-import ApexCharts from 'react-apexcharts';
+import * as React from 'react';
+import { BarChart } from '@mui/x-charts/BarChart';
 
-const BarChart = () => {
-  const options = {
-    chart: {
-      type: 'bar',
-      height: 350
-    },
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        columnWidth: '55%',
-        endingShape: 'rounded'
-      }
-    },
-    dataLabels: {
-      enabled: false
-    },
-    stroke: {
-      show: true,
-      width: 2,
-      colors: ['transparent']
-    },
-    xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
-    },
-    yaxis: {
-      title: {
-        text: 'Amount'
-      }
-    },
-    fill: {
-      opacity: 1
-    },
-    tooltip: {
-      y: {
-        formatter: function (val) {
-          return `$ ${val}`
-        }
-      }
-    }
-  };
-
-  const series = [
-    {
-      name: 'Sales',
-      data: [30, 40, 35, 50, 49, 60, 70]
-    }
-  ];
-
+export default function ChartsOverviewDemo() {
   return (
-    <div className="chart-container">
-      <ApexCharts options={options} series={series} type="bar" height={350} />
-    </div>
+    <BarChart
+      series={[
+        { data: [35, 44, 24, 34] },
+        { data: [51, 6, 49, 30] }
+       
+      ]}
+      height={270}
+      xAxis={[{ data: ['Attendance', 'Leave'], scaleType: 'band' }]}
+      margin={{ top: 10, bottom: 30 }}
+    />
   );
-};
-
-export default BarChart;
+}

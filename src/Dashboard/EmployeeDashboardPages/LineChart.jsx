@@ -1,31 +1,32 @@
-import React from 'react';
-import ReactApexChart from 'react-apexcharts';
+import * as React from 'react';
+import { LineChart } from '@mui/x-charts';
 
-const chart = () => {
-  const series = [{
-    name: 'Sales',
-    data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
-  }];
-  
-  const options = {
-    chart: {
-      type: 'line',
-      height: 350
-    },
-    title: {
-      text: 'Sales Trend',
-      align: 'left'
-    },
-    xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
-    }
-  };
-
+export default function BasicLineChart() {
   return (
-    <div>
-      <ReactApexChart options={options} series={series} type="line" height={350} />
-    </div>
+    <LineChart
+      width={500}
+      height={300} // Increased height to make room for X-axis labels
+      series={[
+        {
+          label: 'Progress',
+          data: [2, 5.5, 2, 8.5, 1.5, 5], // Data points
+        },
+      ]}
+      xAxis={[
+        {
+          label: 'Days', // Axis label
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], // X-axis data points
+          showGridLines: true, // Add grid lines for better visibility
+          tickSize: 10, // Increase tick size for visibility
+        },
+      ]}
+      yAxis={[
+        {
+          label: 'Progress', // Y-axis label
+          showGridLines: true, // Show grid lines on Y-axis
+        },
+      ]}
+      margin={{ top: 10, right: 20, bottom: 30, left: 50 }} // Add margin to avoid clipping
+    />
   );
-};
-
-export default chart;
+}

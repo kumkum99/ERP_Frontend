@@ -1,0 +1,945 @@
+/* profile css */
+.profile-container {
+    display: flex;
+    max-width: 1000px;
+    
+    padding: 20px;
+    margin-left:350px;
+}
+
+.profile-sidebar {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.profile-main-content {
+    flex: 3;
+}
+
+.profile-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.profile-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px 0;
+}
+
+.profile-card-subtitle {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.profile-stats {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-stats li {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+}
+
+.profile-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.profile-btn:hover {
+    background: #0056b3;
+}
+
+.profile-card-header {
+    font-weight: bold;
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    margin: -20px -20px 20px -20px;
+}
+
+.profile-social-links {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.profile-social-links a {
+    color: #0f0a0a;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.profile-tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.profile-tab-button {
+    flex: 1;
+    padding: 10px;
+    background: #031b33;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.profile-tab-button.active {
+    background: #fff;
+    font-weight: bold;
+    color: #031b33;
+}
+
+.profile-tab-content {
+    display: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+.profile-tab-content.active {
+    display: block;
+}
+
+.profile-title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.profile-description {
+    text-align: center;
+    font-size: 1.2rem;
+    color: gray;
+}
+
+.profile-divider {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 40px;
+    border: 1px solid #ddd;
+}
+
+/* Attendance and Leave Forms */
+#attendanceLeaveSection .container-attLeave {
+    width: 1000px;
+   margin-left: 500px;
+    padding: 20px;
+    background-color: #dad6d6;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #attendanceLeaveSection .form-container, 
+  #attendanceLeaveSection .table-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  /* Specific styles for Attendance Form */
+  #attendanceFormSpecific #attendanceEmployeeId,
+  #attendanceFormSpecific #attendanceName {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #332e2e !important;
+    border-radius: 4px;
+  }
+  
+  #attendanceSubmitButton {
+    background: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #attendanceSubmitButton:hover {
+    background: #218838;
+  }
+  
+  /* Specific styles for Leave Request Form */
+  #leaveFormSpecific #leaveEmployeeId,
+  #leaveFormSpecific #leaveName,
+  #leaveFormSpecific #leaveDate,
+  #leaveFormSpecific #leaveReason {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #464343 !important;
+    border-radius: 4px;
+  }
+  
+  #leaveFormSpecific #leaveReason {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  #leaveSubmitButton {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #leaveSubmitButton:hover {
+    background: #0056b3;
+  }
+  
+  /* Table Styles */
+  #attendanceTableSpecific,
+  #leaveTableSpecific {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background: #f2f2f2;
+  }
+  
+  @media (max-width: 768px) {
+    .form-container, .table-container {
+      padding: 10px;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+
+  /* Calendar css */
+  #calendar-container {
+   
+    width: 900px;
+    height: 500px !important;
+    margin: 20px auto;
+    margin-left: 450px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  #calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #3527d5;
+    color: white;
+  }
+  
+  #calendar-header button {
+    background-color: #f7f4fa;
+    border: none;
+    color: rgb(40, 15, 109);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #calendar-header button:hover {
+    background-color: #92abf1;
+  }
+  
+  #calendar-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  #calendar-table {
+    width: 100% !important;
+    height: 80% !important;
+    border-collapse: collapse;
+  }
+  
+  #calendar-table th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  #calendar-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    height: 60px;
+    vertical-align: top;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  #calendar-table td:hover {
+    background-color: #f9f9f9;
+  }
+  
+  #calendar-table td .event {
+    background-color: #5049d5;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Shift css */
+  #container-shift {
+    width: 800px;
+    margin: 20px auto;
+    margin-left:500px;
+    padding: 50px;
+    background: #fff;
+    border-radius: 8px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  #shift-heading-main, #shift-heading-current, #shift-heading-past, #shift-heading-history {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #shift-table, #shift-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  #shift-table, #shift-table th, #shift-table td,
+  #shift-history-table, #shift-history-table th, #shift-history-table td {
+    border: 1px solid #ddd;
+  }
+  
+  #shift-table th, #shift-table td,
+  #shift-history-table th, #shift-history-table td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  #shift-table th, #shift-history-table th {
+    background: #f2f2f2;
+  }
+  
+  #shift-show-all-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #shift-show-all-button:hover {
+    background: #0056b3;
+  }
+  
+  #shift-year-select, #shift-month-select {
+    width: 48%;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  /* Work Deadline */
+  /* Work Deadline Container */
+#workDead-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 800px;
+    margin-left: 450px ;
+    margin: 0 auto;
+    border-radius: 8px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Heading styles */
+  #workDead-heading, #workDeadlines-heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form styles */
+  #workDead-form {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #workTaskName-input, #workDeadlineDate-input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  #workAddDeadlineButton {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #workAddDeadlineButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Table styles */
+  #workDead-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  #workDead-table th, #workDead-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #workDead-table th {
+    background-color: #f4f4f4;
+  }
+  
+  /* Zebra striping for table rows */
+  #workDead-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  #workDead-table tbody tr:hover {
+    background-color: #e9ecef;
+  }
+
+  /* Progress bar */
+  
+#employeeProgressContainer {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    width: 900px;
+    background-color: #d9cfcf;
+    margin-left: 450px;
+  }
+  
+  /* Headings */
+  #employeeProgressHeading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #employeeTasksHeading,
+  #overallProgressHeading {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  /* Form Styles */
+  #employeeProgressForm {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  #employeeProgressForm input[type="text"],
+  #employeeProgressForm input[type="date"],
+  #employeeProgressForm input[type="number"] {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 22%;
+  }
+  
+  #addTaskButton {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #addTaskButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Table Styles */
+  #employeeProgressTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  #employeeProgressTable th,
+  #employeeProgressTable td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #employeeProgressTable th {
+    background-color: #f4f4f4;
+  }
+  
+  #employeeProgressTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  #employeeProgressTable tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Progress Sections */
+  #progressSections {
+    margin-top: 20px;
+  }
+  
+  .progress-section {
+    margin-bottom: 15px;
+  }
+  
+  .progress-section label {
+    margin-right: 10px;
+  }
+  
+  #saveProgressButton {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #saveProgressButton:hover {
+    background-color: #218838;
+  }
+  
+  /* course material */
+  /* Main container */
+#courseMaterialContainer {
+    margin: 20px;
+    margin-left: 370px;
+    padding: 20px;
+    border: 1px solid #fcf6f6;
+    border-radius: 5px;
+    width: 1200px;
+    background-color: #d0c8c8;
+  }
+  
+  /* Main heading */
+  #courseMaterialHeading {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  /* Section headings */
+  #programmingHeading,
+  #webDevHeading,
+  #databaseHeading,
+  #softwareEngHeading {
+    margin-top: 30px;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Table styles */
+  #programmingTable,
+  #webDevTable,
+  #databaseTable,
+  #softwareEngTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  #programmingTable th, #webDevTable th, #databaseTable th, #softwareEngTable th,
+  #programmingTable td, #webDevTable td, #databaseTable td, #softwareEngTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  #programmingTable th,
+  #webDevTable th,
+  #databaseTable th,
+  #softwareEngTable th {
+    background-color: #f4f4f4;
+  }
+  
+  #programmingTable tbody tr:nth-child(odd),
+  #webDevTable tbody tr:nth-child(odd),
+  #databaseTable tbody tr:nth-child(odd),
+  #softwareEngTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  #programmingTable tbody tr:hover,
+  #webDevTable tbody tr:hover,
+  #databaseTable tbody tr:hover,
+  #softwareEngTable tbody tr:hover {
+    background-color: #a5b5c5;
+  }
+  #jsEssentialsLink{
+    color: #031b33;
+  }
+  
+  /* Links inside tables */
+  #jsEssentialsLink,
+  #pythonDataScienceLink,
+  #htmlCssBasicsLink,
+  #reactJsFundamentalsLink,
+  #sqlBasicsLink,
+  #noSqlEssentialsLink,
+  #agileDevelopmentLink,
+  #devOpsFundamentalsLink {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  #jsEssentialsLink:hover,
+  #pythonDataScienceLink:hover,
+  #htmlCssBasicsLink:hover,
+  #reactJsFundamentalsLink:hover,
+  #sqlBasicsLink:hover,
+  #noSqlEssentialsLink:hover,
+  #agileDevelopmentLink:hover,
+  #devOpsFundamentalsLink:hover {
+    text-decoration: underline;
+  }
+   /* course Progress */
+   /* Container */
+#employeeCourseProgressContainer {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+    width: 900px;
+    margin-left: 450px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Main heading */
+  #employeeCourseProgressHeading {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  /* Table styling */
+  #employeeCourseProgressTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  #employeeCourseProgressTable th,
+  #employeeCourseProgressTable td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  #employeeCourseProgressTable th {
+    background-color: #f4f4f4;
+  }
+  
+  #employeeCourseProgressTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  #employeeCourseProgressTable tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Status badges */
+  .courseStatusCompleted {
+    color: white;
+    background-color: green;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .courseStatusInProgress {
+    color: white;
+    background-color: orange;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+
+ /* Container */
+#employeeResumeContainer {
+    margin: 20px;
+    margin-left: 450px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f3f4f6;
+    width: 1000px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  #employeeResumeContainer:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Heading */
+  #employeeResumeHeading {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #3b82f6; /* Vibrant Blue */
+    font-weight: 700;
+  }
+  
+  /* Section Titles */
+  #employeePersonalInfoHeading,
+  #employeeSkillsHeading,
+  #employeeExperienceHeading,
+  #employeeEducationHeading,
+  #employeeProjectsHeading,
+  #employeeAchievementsHeading {
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #1e40af; /* Deep Blue */
+    border-bottom: 3px solid #60a5fa; /* Light Blue Border */
+    padding-bottom: 5px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+  
+  #employeePersonalInfoHeading:hover,
+  #employeeSkillsHeading:hover,
+  #employeeExperienceHeading:hover,
+  #employeeEducationHeading:hover,
+  #employeeProjectsHeading:hover,
+  #employeeAchievementsHeading:hover {
+    color: #60a5fa; /* Light Blue on Hover */
+    border-bottom: 3px solid #3b82f6; /* Darker Border on Hover */
+  }
+  
+  /* Personal Info */
+  #employeePersonalInfo p {
+    font-size: 1.1em;
+    color: #4b5563; /* Grayish Text */
+    margin-bottom: 8px;
+  }
+  
+  /* Skills List */
+  #employeeSkillsList {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 1.1em;
+    color: #374151; /* Dark Gray */
+    padding-left: 20px;
+  }
+  
+  #employeeSkillsList li {
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  #employeeSkillsList li:hover {
+    color: #1e40af; /* Interactive Hover Effect */
+  }
+  
+  /* Achievements List */
+  #employeeAchievementsList {
+    list-style-type: circle;
+    margin-left: 20px;
+    font-size: 1.1em;
+    color: #374151;
+  }
+  
+  #employeeAchievementsList li {
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  #employeeAchievementsList li:hover {
+    color: #1e40af;
+  }
+  
+  /* Experience */
+  #employeeExperience div {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e0f2fe; /* Light Blue Background */
+    border-radius: 8px;
+    border-left: 5px solid #3b82f6;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  #employeeExperience div:hover {
+    background-color: #bfdbfe; /* Darker Blue on Hover */
+    transform: translateY(-5px);
+  }
+  
+  /* Education */
+  #employeeEducation div {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fef3c7; /* Light Yellow Background */
+    border-radius: 8px;
+    border-left: 5px solid #f59e0b; /* Yellow Border */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  #employeeEducation div:hover {
+    background-color: #fde68a; /* Darker Yellow on Hover */
+    transform: translateY(-5px);
+  }
+  
+  /* Projects */
+  #employeeProjects div {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #d1fae5; /* Light Green Background */
+    border-radius: 8px;
+    border-left: 5px solid #10b981; /* Green Border */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  #employeeProjects div:hover {
+    background-color: #86efac; /* Darker Green on Hover */
+    transform: translateY(-5px);
+  }
+  
+  /* Download Button */
+  #downloadPdfButton {
+    padding: 12px 24px;
+    background-color: #3b82f6; /* Vibrant Blue */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin: 40px auto;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  #downloadPdfButton:hover {
+    background-color: #2563eb; /* Darker Blue on Hover */
+    transform: scale(1.05);
+  }
+  
+  /* For small screen adjustments */
+  @media (max-width: 768px) {
+    #employeeResumeContainer {
+      margin-left: 0;
+      width: auto;
+      padding: 20px;
+    }
+  
+    #employeeResumeHeading {
+      font-size: 2em;
+    }
+  
+    #downloadPdfButton {
+      width: 100%;
+    }
+  }
+  
