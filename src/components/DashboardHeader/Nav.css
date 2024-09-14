@@ -1,0 +1,74 @@
+/* Navbar Styling */
+.navbar-custom {
+    background-color: #818292 !important; /* Background color */
+    height: 75px; /* Set the height of the navbar */
+    position: -webkit-sticky; /* For Safari */
+    position: sticky !important; /* For other browsers */
+    top: 0; /* Stick the navbar to the top */
+    z-index: 800; /* Ensure the navbar stays on top of other content */
+    width: 100%; /* Ensure the navbar takes full width */
+}
+
+.navbar-custom .navbar-brand {
+    height: 100%; /* Ensure the brand takes full height */
+    display: flex;
+    align-items: center; /* Center the brand vertically */
+}
+
+.navbar-custom .nav-link {
+    color: #fff; /* White text color */
+    display: flex;
+    align-items: center; /* Center icons vertically */
+}
+
+.navbar-custom .nav-link:hover {
+    color: #0c0808; /* Lighter color on hover */
+}
+
+.nav-icon {
+    font-size: 20px; /* Size of the icons */
+}
+/* Search bar styling */
+.search-bar-form {
+    flex-grow: 1;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar-input {
+    border-radius: 20px;
+    padding: 8px 16px;
+    flex: 1;
+  }
+  
+  .search-icon {
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .search-icon:hover {
+    color: #00aaff;
+  }
+  
+  /* Highlighted text */
+  .highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }
+  
+  /* Content styling */
+  .content {
+    margin: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .search-bar-form {
+      max-width: 100%;
+    }
+  }
+  

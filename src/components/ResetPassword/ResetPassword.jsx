@@ -25,7 +25,7 @@ const ResetPassword = () => {
 
     setLoading(true);
     try {
-      const response = await axios.put("https://erpunity-production.up.railway.app/api/reset-password", {
+      const response = await axios.put("http://localhost:5000/api/reset-password", {
         token,
         password,
       });

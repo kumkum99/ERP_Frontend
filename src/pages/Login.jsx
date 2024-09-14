@@ -31,8 +31,8 @@ const Login = () => {
 
     const loginType = isLoginMode ? "admin" : "employee";
     const apiUrl = isLoginMode
-      ? `https://erpunity-production.up.railway.app/api/admin/login?email=${email}&password=${password}`
-      : `https://erpunity-production.up.railway.app/api/employee/login?email=${email}&password=${password}`;
+      ? `http://localhost:5000/api/admin/login?email=${email}&password=${password}`
+      : `http://localhost:5000/api/employee/login?email=${email}&password=${password}`;
 
     try {
       const response = await axios.get(apiUrl);

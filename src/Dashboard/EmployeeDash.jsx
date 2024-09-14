@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { StyledEngineProvider } from '@mui/material/styles';
-import EmployeeHeader from '../components/DashboardHeader/EmployeeHeader';
+import Employee from '../Dashboard/EmployeeDashboardPages/Employee';
+
 
 const EmployeeDash = () => {
   return (
     <React.StrictMode>
       <StyledEngineProvider injectFirst>
-        <EmployeeHeader />
+    <Employee />
       </StyledEngineProvider>
     </React.StrictMode>
   );

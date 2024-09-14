@@ -32,7 +32,7 @@ const Signup = () => {
         e.preventDefault();
         try {
             console.log('Submitting form with data:', formData);
-            const response = await axios.post('https://erpunity-production.up.railway.app/api/register', formData);
+            const response = await axios.post('http://localhost:5000/api/register', formData);
             console.log('User registered successfully:', response.data);
             alert('User registered successfully. Please login!');
             navigate('/login');

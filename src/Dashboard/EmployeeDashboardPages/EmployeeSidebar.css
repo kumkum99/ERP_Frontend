@@ -1,0 +1,42 @@
+/* Sidebar Styling */
+.sidebar {
+    width: 300px; /* Fixed width for the sidebar */
+    background-color: #092542; /* Blue background color */
+    color: white; /* White text color */
+    height: calc(100vh - 60px); /* Full height minus the height of the navbar */
+    position: fixed; /* Fixed position */
+    top: 60px; /* Position below the navbar */
+    left: 0; /* Align to the left */
+    padding: 1rem; /* Padding inside the sidebar */
+    overflow-y: auto; /* Scroll if content overflows */
+  }
+  
+  .sidebar a {
+    color: white; /* White link color */
+    text-decoration: none; /* Remove underline from links */
+    display: block; /* Block display for links */
+    margin: 0.5rem 0; /* Spacing between links */
+    font-size:x-large;
+    width: 250px;
+   
+  }
+  
+  .sidebar a:hover {
+    background-color: #0b0e11; /* Darker blue background on hover */
+    padding: 0.5rem; /* Add padding on hover */
+    border-radius: 4px; /* Rounded corners on hover */
+  }
+  .sidebar .sidebar-icon {
+    margin-right: 5px; /* Space between icon and text */
+  }
+
+  .p-3{
+    margin-top: 1.5rem !important;
+  }
+
+  .card-text{
+    text-align: center;
+  }
+
+  
+  
