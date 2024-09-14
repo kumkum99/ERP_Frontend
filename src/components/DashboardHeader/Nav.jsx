@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Navbar, Nav, Container, Form, FormControl } from 'react-bootstrap';
-import { FaBell, FaEnvelope, FaUserCircle, FaSearch } from 'react-icons/fa';
+import { FaCog, FaEnvelope, FaUserCircle, FaSearch } from 'react-icons/fa';
 import logo22 from '../../assets/images/logo22.jpg';
 import './Nav.css'; // Import the CSS file for custom styling
+import { GlobalSettingsContext } from "../../Dashboard/context/GlobalSettingsContext";
 
-const NavbarComponent = () => {
+const NavbarComponent =  ({ bgColor })  => {
+  const { fontSize, fontColor } = useContext(GlobalSettingsContext);
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearchChange = (e) => {
@@ -67,7 +69,13 @@ const NavbarComponent = () => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="navbar-custom">
+    <Navbar bg="dark" variant="dark" expand="lg" className="navbar-custom"
+    id="navbarContainer"
+      style={{
+        backgroundColor: bgColor,
+        color: fontColor,
+        fontSize: fontSize,
+      }}>
       <Container fluid>
         <Navbar.Brand href="/dashboard">
           <img src={logo22} alt="Logo" style={{ width: '40px', height: '40px', marginRight: '10px' }} />
@@ -92,11 +100,11 @@ const NavbarComponent = () => {
           </Form>
 
           <Nav className="ml-auto">
-            <Nav.Link href="#notifications" className="nav-icon">
-              <FaBell size={20} />
-            </Nav.Link>
             <Nav.Link href="#email" className="nav-icon">
               <FaEnvelope size={20} />
+            </Nav.Link>
+            <Nav.Link href="/settings" className="nav-icon">
+              <FaCog size={20} />
             </Nav.Link>
             <Nav.Link href="#account" className="nav-icon">
               <FaUserCircle size={20} />

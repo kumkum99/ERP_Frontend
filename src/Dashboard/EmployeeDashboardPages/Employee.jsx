@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { FaClipboardCheck,FaClock, FaHourglassHalf, FaBookOpen } from 'react-icons/fa';
 import EmpSidebar from './EmployeeSidebar'; // Adjust based on actual file location
@@ -6,10 +6,17 @@ import NavbarComponent from '../../components/DashboardHeader/Nav';
 import './Employee.css'; // Ensure this path is correct and CSS file exists
 import Chart from './LineChart';
 import BarChart from './BarChart';
+import { GlobalSettingsContext } from "../context/GlobalSettingsContext";
 
 const Employee = () => {
+  const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column"  id="homePageContainer"
+    style={{
+      backgroundColor: darkMode ? "#1e1e1e" : "#f0f0f0",
+      color: fontColor,
+      fontSize: fontSize,
+    }}>
     <NavbarComponent /> 
     <div className="d-flex flex-grow-1">
       <EmpSidebar />

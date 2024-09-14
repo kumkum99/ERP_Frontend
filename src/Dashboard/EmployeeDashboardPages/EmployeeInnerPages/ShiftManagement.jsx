@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './PagesCSS.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
 import EmpSidebar from '../EmployeeSidebar'
+import { GlobalSettingsContext } from "../../context/GlobalSettingsContext";
 
 const ShiftManagement = () => {
+    const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
   const [currentShifts, setCurrentShifts] = useState([
     { type: 'Morning Shift', date: '2024-08-01', time: '08:00 AM - 04:00 PM' },
     { type: 'Evening Shift', date: '2024-08-02', time: '04:00 PM - 12:00 AM' },
@@ -46,7 +48,13 @@ const ShiftManagement = () => {
   };
 
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column"
+    id="homePageContainer"
+    style={{
+      backgroundColor: darkMode ? "#1e1e1e" : "#f0f0f0",
+      color: fontColor,
+      fontSize: fontSize,
+    }}>
     <NavbarComponent /> 
     <div className="d-flex flex-grow-1">
       <EmpSidebar />

@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import './PagesCSS.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
 import EmpSidebar from '../EmployeeSidebar'
+import { GlobalSettingsContext } from "../../context/GlobalSettingsContext";
 
 const AttendanceLeave = () => {
   const [attendanceRecords, setAttendanceRecords] = useState([]);
   const [leaveRequests, setLeaveRequests] = useState([]);
+  const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
 
   useEffect(() => {
     loadAttendanceRecords();
@@ -66,7 +68,13 @@ const AttendanceLeave = () => {
   };
 
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column"
+    id="homePageContainer"
+    style={{
+      backgroundColor: darkMode ? "#1e1e1e" : "#f0f0f0",
+      color: fontColor,
+      fontSize: fontSize,
+    }}>
     <NavbarComponent /> 
     <div className="d-flex flex-grow-1">
       <EmpSidebar />

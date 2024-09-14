@@ -1,15 +1,19 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
-import { FaUsers, FaBox, FaShoppingBag, FaChartBar, FaMoneyBillWave, FaComments, FaCog } from 'react-icons/fa'; // Updated Icons
+import { FaUsers, FaHome, FaBox, FaShoppingBag, FaChartBar, FaMoneyBillWave, FaComments, FaCog } from 'react-icons/fa'; // Updated Icons
 import { Link } from 'react-router-dom'; // Import Link for routing
 import './AdminSidebar.css'; // Ensure this path is correct and CSS file exists
 
 const Sidebar = () => {
   return (
     <div className="sidebar bg-dark-blue">
-      <h4 className="p-3">Dashboard</h4>
+      <h4 className="p-3">Admin</h4>
       <Nav className="flex-column p-3">
-        <Nav.Link as={Link} to="/employee">
+      <Nav.Link as={Link} to="/adminDashboard">
+          {/* FaUsers for Employees */}
+          <FaHome className="sidebar-icon" />Dashboard
+        </Nav.Link>
+        <Nav.Link as={Link} to="/employees">
           {/* FaUsers for Employees */}
           <FaUsers className="sidebar-icon" /> Employees
         </Nav.Link>
@@ -33,6 +37,7 @@ const Sidebar = () => {
           {/* FaComments for Feedback */}
           <FaComments className="sidebar-icon" /> Feedback
         </Nav.Link>
+
         <Nav.Link as={Link} to="/settings">
           {/* FaCog for Settings */}
           <FaCog className="sidebar-icon" /> Settings

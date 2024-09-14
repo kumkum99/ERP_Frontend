@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './PagesCSS.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
 import EmpSidebar from '../EmployeeSidebar'
+import { GlobalSettingsContext } from "../../context/GlobalSettingsContext";
 
 const Calendar = () => {
+    const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [events, setEvents] = useState(() => {
@@ -101,7 +103,13 @@ const Calendar = () => {
   };
 
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column"
+    id="homePageContainer"
+    style={{
+      backgroundColor: darkMode ? "#1e1e1e" : "#f0f0f0",
+      color: fontColor,
+      fontSize: fontSize,
+    }}>
     <NavbarComponent /> 
     <div className="d-flex flex-grow-1">
       <EmpSidebar />

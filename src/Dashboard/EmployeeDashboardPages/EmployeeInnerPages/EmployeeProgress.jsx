@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './PagesCSS.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
 import EmpSidebar from '../EmployeeSidebar'
+import { GlobalSettingsContext } from "../../context/GlobalSettingsContext";
 
 const EmployeeProgress = () => {
+    const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
   const [tasks, setTasks] = useState([]);
   const [taskName, setTaskName] = useState('');
   const [deadline, setDeadline] = useState('');
@@ -77,7 +79,13 @@ const EmployeeProgress = () => {
   };
 
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column"
+    id="homePageContainer"
+    style={{
+      backgroundColor: darkMode ? "#1e1e1e" : "#f0f0f0",
+      color: fontColor,
+      fontSize: fontSize,
+    }}>
     <NavbarComponent /> 
     <div className="d-flex flex-grow-1">
       <EmpSidebar />

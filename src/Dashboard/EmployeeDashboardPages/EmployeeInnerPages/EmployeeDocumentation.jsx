@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext } from 'react';
 import jsPDF from 'jspdf';
 import './PagesCSS.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
 import EmpSidebar from '../EmployeeSidebar'
+import { GlobalSettingsContext } from "../../context/GlobalSettingsContext";
 
 const EmployeeDocumentation = () => {
+    const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
   // Sample employee data (this can be fetched dynamically from an API or database)
   const employeeData = {
     name: 'John Doe',
@@ -89,7 +91,13 @@ const EmployeeDocumentation = () => {
   };
 
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column"
+    id="homePageContainer"
+    style={{
+      backgroundColor: darkMode ? "#1e1e1e" : "#f0f0f0",
+      color: fontColor,
+      fontSize: fontSize,
+    }}>
     <NavbarComponent /> 
     <div className="d-flex flex-grow-1">
       <EmpSidebar />

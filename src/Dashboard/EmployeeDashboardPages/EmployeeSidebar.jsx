@@ -1,18 +1,26 @@
-import React, { useState } from 'react'; // Import useState from React
+import React, { useState, useContext } from 'react'; // Import useState from React
 import { Nav } from 'react-bootstrap';
 import { FaUser, FaCog, FaHome, FaFileAlt, FaChalkboardTeacher, FaTasks, FaCalendarAlt, FaChevronUp, FaChevronDown } from 'react-icons/fa'; // Add FaChevronUp and FaChevronDown for the dropdown icons
 import { Link } from 'react-router-dom'; // Import Link for routing
 import './EmployeeSidebar.css'; // Ensure this path is correct and CSS file exists
-
+import { GlobalSettingsContext } from "../context/GlobalSettingsContext";
 const EmpSidebar = () => {
 
   const [isProfileOpen, setProfileOpen] = useState(false);
   const [isOrdersOpen, setOrdersOpen] = useState(false);
   const [isPaymentsOpen, setPaymentsOpen] = useState(false);
   const [isTrainingOpen, setTrainingOpen] = useState(false);
+  const { sidebarBgColor, fontSize, fontColor } = useContext(GlobalSettingsContext);
 
   return (
-    <div bg="dark" variant="dark" className="sidebar bg-dar">
+
+    <div bg="dark" variant="dark" className="sidebar bg-dar"
+    id="employeeSidebar"
+    style={{
+      backgroundColor: sidebarBgColor,
+      color: fontColor,
+      fontSize: fontSize,
+    }}>
       <h4 className="p-3">Employee</h4>
       <Nav className="flex-column">
       <Nav.Link as={Link} to="/employeeDashboard">

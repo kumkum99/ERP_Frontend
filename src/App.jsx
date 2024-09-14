@@ -20,10 +20,15 @@ import EmployeeProgress from './Dashboard/EmployeeDashboardPages/EmployeeInnerPa
 import CourseMaterial from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/CourseMaterial';
 import EmployeeCourseProgress from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/EmployeeCourseProgress';
 import EmployeeDocumentation from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/EmployeeDocumentation';
+import SettingsPage from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/SettingsPage';
+import Employees from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Employees';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {GlobalSettingsProvider} from './Dashboard/context/GlobalSettingsContext';
+
 
 function App() {
     return (
+        <GlobalSettingsProvider>
         <div className="App">
             <Router>
               
@@ -48,10 +53,13 @@ function App() {
                     <Route path="/courseMaterial" element={<CourseMaterial />} />
                     <Route path="/employeeCourseProgress" element={<EmployeeCourseProgress />} />
                     <Route path="/employeeDocumentation" element={<EmployeeDocumentation />} />
-                   
+                    <Route path="/settings" element={<SettingsPage />} />
+                    
+                    <Route path="/employees" element={<Employees />} />
                 </Routes>  
             </Router>
         </div>
+        </GlobalSettingsProvider>
     );
 }
 
