@@ -63,8 +63,11 @@ const Login = () => {
   }
 
   return (
-    <div className="main-container">
+
+    <div className="main-container"> 
+     
       <div className="wrapper">
+     <a href="/"> <button id="loginBackButton">Home</button></a>
         <div className="title-text">
           <div className={`title ${isLoginMode ? "login" : "signup"}`}>
             {isLoginMode ? "Admin Login" : "Employee Login"}
@@ -128,7 +131,7 @@ const Login = () => {
               </div>
               {errorMessage && <p className="error-message">{errorMessage}</p>}
               <div className="pass-link">
-                <a href="#" onClick={() => setIsForgotPassword(true)}>Forgot password?</a>
+                <a href="/forgotPassword" onClick={() => setIsForgotPassword(true)}>Forgot password?</a>
               </div>
               <div className="field btn">
                 <div className="btn-layer"></div>

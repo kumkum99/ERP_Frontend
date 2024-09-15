@@ -85,7 +85,12 @@ function Employees() {
   };
 
   return (
-    <div id="employee-management">
+     <div className="d-flex flex-column">
+       <NavbarComponent /> 
+    <div className="d-flex flex-grow-1">
+      <Sidebar />
+      
+          <div id="employee-management">
       <h1 id="form-title">Employee Management</h1>
       
       {/* Add Employee Form */}
@@ -236,6 +241,8 @@ function Employees() {
           ))}
         </tbody>
       </table>
+    </div>
+    </div>
     </div>
   );
 }

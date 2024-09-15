@@ -268,4 +268,9 @@
     font-size: 18px;
     box-sizing: border-box;
   }
+
+  .loginAnchor{
+    text-decoration: underline;
+    color:blue !important;
+  }
   

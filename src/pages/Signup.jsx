@@ -236,7 +236,9 @@ const Signup = () => {
                         )}
                     </form>
                 </div>
+                <p>if you are Registered Login here <a href="/login" className="loginAnchor">Login</a></p>
             </div>
+          
         </div>
     );
 };
