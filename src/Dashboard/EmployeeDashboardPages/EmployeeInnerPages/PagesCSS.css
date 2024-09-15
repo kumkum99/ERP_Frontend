@@ -273,14 +273,22 @@ h2 {
       width: 100%;
     }
   }
+  @media (max-width: 576px) {
+    #attendanceLeaveSection .container-attLeave {
+      width: 355px;
+      margin-left: 20px;
+    
+      background-color: #f7e9e9;
+    }
+  }
 
   /* Calendar css */
   #calendar-container {
    
-    width: 900px;
+    width: 800px;
     height: 500px !important;
     margin: 20px auto;
-    margin-left: 450px;
+    margin-left: 400px;
     text-align: center;
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;

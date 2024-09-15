@@ -159,8 +159,6 @@ body {
   }
 }
 
-  
-
 /* Home */
 /* Full-width and full-height video */
 .background-video {
@@ -1630,21 +1628,13 @@ form .btn input[type="submit"]{
   color: red;
 }
 
-#loginBackButton {
-  background-color: blue;
-  color: white;
-  padding: 10px 20px;
-  font-size: medium;
-  border-radius: 8px;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  border: none;
+.back-icon {
+  width: 24px;
+  height: 24px;
+  fill: #000; /* Icon color */
   cursor: pointer;
 }
 
-#loginBackButton:hover {
-  background-color: darkblue;
+.back-icon:hover {
+  fill: #007bff; /* Color on hover */
 }
-
-
- 
-

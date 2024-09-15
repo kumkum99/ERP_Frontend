@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './PagesCSS.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
-import EmpSidebar from '../EmployeeSidebar'
+import EmpSidebar from '../EmployeeSidebar';
 import { GlobalSettingsContext } from "../../context/GlobalSettingsContext";
+import { Col, Card } from 'react-bootstrap';
+import { FaClock } from 'react-icons/fa';
 
 const Calendar = () => {
-    const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
+  const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [events, setEvents] = useState(() => {
     const storedEvents = localStorage.getItem('events');
     return storedEvents ? JSON.parse(storedEvents) : [];
   });
+  const [todaysEvent, setTodaysEvent] = useState(null);
 
   const months = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -20,7 +23,21 @@ const Calendar = () => {
 
   useEffect(() => {
     renderCalendar(currentMonth, currentYear);
+    updateTodaysEvent();
   }, [currentMonth, currentYear, events]);
+
+  const updateTodaysEvent = () => {
+    const today = new Date();
+    const formattedToday = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+    const eventForToday = events.find(event => event.date === formattedToday);
+
+    if (eventForToday) {
+      setTodaysEvent(eventForToday);
+    } else {
+      const sortedEvents = events.sort((a, b) => new Date(b.date) - new Date(a.date));
+      setTodaysEvent(sortedEvents[0] || null);
+    }
+  };
 
   const renderCalendar = (month, year) => {
     const calendarBody = document.getElementById('calendar-body');
@@ -150,7 +167,26 @@ const Calendar = () => {
         </div>
       </div>
     </section>
-    </div></div>
+
+    {/* Card to display today's or the most recent event */}
+    <Col md={3} sm={6} className="mb-4">
+      <Card className="text-center card-width card-orders">
+        <Card.Body className="dashCard">
+          <FaClock size={40} />
+          <Card.Title className='mainCardText'>Events</Card.Title>
+          {todaysEvent ? (
+            <>
+              <Card.Text className='CardTitle'>
+                {todaysEvent.date} {todaysEvent.title}
+              </Card.Text>
+            </>
+          ) : (
+            <Card.Text className='CardTitle'>No upcoming events</Card.Text>
+          )}
+        </Card.Body>
+      </Card>
+    </Col>
+  </div></div>
   );
 };
 

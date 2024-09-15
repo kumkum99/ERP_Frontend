@@ -93,4 +93,89 @@
   background-color: #1b2a38; /* Slightly darker background on hover */
   border-radius: 4px; /* Rounded corners */
 }
-  
+  /* Hide the toggle button on larger screens */
+@media (min-width: 769px) {
+  .toggle-sidebar-btn {
+    display: none;
+  }
+}
+
+/* Responsive Sidebar for tablets (up to 768px width) */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 260px; /* Smaller width for tablets */
+    transform: translateX(-260px); /* Hide by default */
+  }
+
+  .sidebar.active {
+    transform: translateX(0); /* Slide in when active */
+  }
+}
+
+/* Responsive Sidebar for mobile (up to 576px width) */
+@media (max-width: 576px) {
+  .sidebar {
+    width: 220px; /* Smaller width for mobile */
+    transform: translateX(-220px); /* Hide by default */
+  }
+
+  .sidebar.active {
+    transform: translateX(0); /* Slide in when active */
+  }
+
+  .sidebar a {
+    font-size: large; /* Adjust font size for smaller screens */
+  }
+}
+
+/* General styling for dropdowns */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: white !important;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.dropdown-icon {
+  font-size: 0.9rem;
+}
+
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  padding-left: 1.5rem;
+  background-color: #0b0e11;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: calc(100% - 1.5rem);
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Show dropdown menu when the parent is open */
+.dropdown.open .dropdown-menu {
+  display: block; /* Show the dropdown */
+}
+
+.dropdown-menu a {
+  padding: 0.75rem;
+  margin: 0;
+  font-size: medium;
+  color: white;
+  display: block;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-menu a:hover {
+  background-color: #1b2a38;
+  border-radius: 4px;
+}

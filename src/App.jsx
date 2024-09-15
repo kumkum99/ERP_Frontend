@@ -22,43 +22,43 @@ import EmployeeCourseProgress from './Dashboard/EmployeeDashboardPages/EmployeeI
 import EmployeeDocumentation from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/EmployeeDocumentation';
 import SettingsPage from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/SettingsPage';
 import Employees from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Employees';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {GlobalSettingsProvider} from './Dashboard/context/GlobalSettingsContext';
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { GlobalSettingsProvider } from './Dashboard/context/GlobalSettingsContext';
+import { CourseProvider } from './Dashboard/context/CourseContext'; // Import the CourseProvider
 
 function App() {
     return (
         <GlobalSettingsProvider>
-        <div className="App">
-            <Router>
-              
-                
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/Services" element={<Services />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<Signup />} />
-                    <Route path="/adminDashboard" element={<AdminDash />} />
-                    <Route path="/employeeDashboard" element={<EmployeeDash />} />
-                    <Route path="/forgotPassword" element={<ForgotPassword />} />
-                    <Route path="/resetPassword/:token" element={<ResetPassword />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/attenLeave" element={<AttendanceLeave />} />
-                    <Route path="/calendar" element={<Calendar />} />
-                    <Route path="/shifts" element={<ShiftManagement />} />
-                    <Route path="/workDeadline" element={<WorkDeadline />} />
-                    <Route path="/employeeProgress" element={<EmployeeProgress />} />
-                    <Route path="/courseMaterial" element={<CourseMaterial />} />
-                    <Route path="/employeeCourseProgress" element={<EmployeeCourseProgress />} />
-                    <Route path="/employeeDocumentation" element={<EmployeeDocumentation />} />
-                    <Route path="/settings" element={<SettingsPage />} />
-                    
-                    <Route path="/employees" element={<Employees />} />
-                </Routes>  
-            </Router>
-        </div>
+            <CourseProvider>
+                <div className="App">
+                    <Router>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/services" element={<Services />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/signup" element={<Signup />} />
+                            <Route path="/adminDashboard" element={<AdminDash />} />
+                            <Route path="/employeeDashboard" element={<EmployeeDash />} />
+                            <Route path="/forgotPassword" element={<ForgotPassword />} />
+                            <Route path="/resetPassword/:token" element={<ResetPassword />} />
+                            <Route path="/profile" element={<Profile />} />
+                            <Route path="/attenLeave" element={<AttendanceLeave />} />
+                            <Route path="/calendar" element={<Calendar />} />
+                            <Route path="/shifts" element={<ShiftManagement />} />
+                            <Route path="/workDeadline" element={<WorkDeadline />} />
+                            <Route path="/employeeProgress" element={<EmployeeProgress />} />
+                            <Route path="/courseMaterial" element={<CourseMaterial />} />
+                            <Route path="/employeeCourseProgress" element={<EmployeeCourseProgress />} />
+                            <Route path="/employeeDocumentation" element={<EmployeeDocumentation />} />
+                            <Route path="/settings" element={<SettingsPage />} />
+                            <Route path="/employees" element={<Employees />} />
+                        </Routes>
+                    </Router>
+                </div>
+            </CourseProvider>
         </GlobalSettingsProvider>
     );
 }

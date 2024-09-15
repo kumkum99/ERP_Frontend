@@ -1,17 +1,21 @@
 import React, { useEffect, useState, useContext } from "react";
 import './PagesCSS.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
-import EmpSidebar from '../EmployeeSidebar'
+import EmpSidebar from '../EmployeeSidebar';
 import { GlobalSettingsContext } from "../../context/GlobalSettingsContext";
+import { Col, Card } from 'react-bootstrap';
+import { FaClipboardCheck } from 'react-icons/fa';
 
 const AttendanceLeave = () => {
   const [attendanceRecords, setAttendanceRecords] = useState([]);
   const [leaveRequests, setLeaveRequests] = useState([]);
+  const [attendanceStatus, setAttendanceStatus] = useState('Absent'); // Default to 'Absent'
   const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
 
   useEffect(() => {
     loadAttendanceRecords();
     loadLeaveRequests();
+    updateAttendanceStatus(); // Check attendance status on component mount
   }, []);
 
   const handleAttendanceSubmit = (e) => {
@@ -41,6 +45,7 @@ const AttendanceLeave = () => {
     const updatedRecords = [...attendanceRecords, { employeeId, name, date, time }];
     setAttendanceRecords(updatedRecords);
     saveAttendanceRecord(updatedRecords);
+    updateAttendanceStatus(); // Update attendance status after adding a record
   };
 
   const addLeaveRequest = (employeeId, name, date, reason) => {
@@ -67,103 +72,125 @@ const AttendanceLeave = () => {
     setLeaveRequests(requests);
   };
 
+  const updateAttendanceStatus = () => {
+    const today = new Date().toLocaleDateString();
+    const records = JSON.parse(localStorage.getItem('attendanceRecords')) || [];
+    const recordForToday = records.find(record => record.date === today);
+    
+    if (recordForToday) {
+      setAttendanceStatus(`Present at ${recordForToday.time}`);
+    } else {
+      setAttendanceStatus('Absent');
+    }
+  };
+
   return (
     <div className="d-flex flex-column"
-    id="homePageContainer"
-    style={{
-      backgroundColor: darkMode ? "#1e1e1e" : "#f0f0f0",
-      color: fontColor,
-      fontSize: fontSize,
-    }}>
-    <NavbarComponent /> 
-    <div className="d-flex flex-grow-1">
-      <EmpSidebar />
-    <section id="attendanceLeaveSection" className="content-section">
-      <div className="container-attLeave">
-        <h1>Employee Dashboard</h1>
+      id="homePageContainer"
+      style={{
+        backgroundColor: darkMode ? "#1e1e1e" : "#f0f0f0",
+        color: fontColor,
+        fontSize: fontSize,
+      }}>
+      <NavbarComponent />
+      <div className="d-flex flex-grow-1">
+        <EmpSidebar />
+        <section id="attendanceLeaveSection" className="content-section">
+          <div className="container-attLeave">
+            <h1>Employee Dashboard</h1>
 
-        <div className="form-container">
-          <h2>Mark Attendance</h2>
-          <form id="attendanceFormSpecific" onSubmit={handleAttendanceSubmit}>
-            <label htmlFor="attendanceEmployeeId">Employee ID:</label>
-            <input type="text" id="attendanceEmployeeId" name="attendanceEmployeeId" required />
+            <Col md={3} sm={6} className="mb-4">
+              <Card className="text-center card-width card-employees">
+                <Card.Body className="dashCard">
+                  <FaClipboardCheck size={40} />
+                  <Card.Title className='mainCardText'>Attendance</Card.Title>
+                  <Card.Text className='CardTitle'>{attendanceStatus}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
 
-            <label htmlFor="attendanceName">Name:</label>
-            <input type="text" id="attendanceName" name="attendanceName" required />
+            <div className="form-container">
+              <h2>Mark Attendance</h2>
+              <form id="attendanceFormSpecific" onSubmit={handleAttendanceSubmit}>
+                <label htmlFor="attendanceEmployeeId">Employee ID:</label>
+                <input type="text" id="attendanceEmployeeId" name="attendanceEmployeeId" required />
 
-            <button type="submit" id="attendanceSubmitButton">Submit</button>
-          </form>
-        </div>
+                <label htmlFor="attendanceName">Name:</label>
+                <input type="text" id="attendanceName" name="attendanceName" required />
 
-        <div className="form-container">
-          <h2>Leave Request</h2>
-          <form id="leaveFormSpecific" onSubmit={handleLeaveSubmit}>
-            <label htmlFor="leaveEmployeeId">Employee ID:</label>
-            <input type="text" id="leaveEmployeeId" name="leaveEmployeeId" required />
+                <button type="submit" id="attendanceSubmitButton">Submit</button>
+              </form>
+            </div>
 
-            <label htmlFor="leaveName">Name:</label>
-            <input type="text" id="leaveName" name="leaveName" required />
+            <div className="form-container">
+              <h2>Leave Request</h2>
+              <form id="leaveFormSpecific" onSubmit={handleLeaveSubmit}>
+                <label htmlFor="leaveEmployeeId">Employee ID:</label>
+                <input type="text" id="leaveEmployeeId" name="leaveEmployeeId" required />
 
-            <label htmlFor="leaveDate">Date:</label>
-            <input type="date" id="leaveDate" name="leaveDate" required />
+                <label htmlFor="leaveName">Name:</label>
+                <input type="text" id="leaveName" name="leaveName" required />
 
-            <label htmlFor="leaveReason">Reason:</label>
-            <textarea id="leaveReason" name="leaveReason" required></textarea>
+                <label htmlFor="leaveDate">Date:</label>
+                <input type="date" id="leaveDate" name="leaveDate" required />
 
-            <button type="submit" id="leaveSubmitButton">Submit</button>
-          </form>
-        </div>
+                <label htmlFor="leaveReason">Reason:</label>
+                <textarea id="leaveReason" name="leaveReason" required></textarea>
 
-        <div className="table-container">
-          <h2>Attendance Records</h2>
-          <table id="attendanceTableSpecific">
-            <thead>
-              <tr>
-                <th>Employee ID</th>
-                <th>Name</th>
-                <th>Date</th>
-                <th>Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              {attendanceRecords.map((record, index) => (
-                <tr key={index}>
-                  <td>{record.employeeId}</td>
-                  <td>{record.name}</td>
-                  <td>{record.date}</td>
-                  <td>{record.time}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                <button type="submit" id="leaveSubmitButton">Submit</button>
+              </form>
+            </div>
 
-        <div className="table-container">
-          <h2>Leave Requests</h2>
-          <table id="leaveTableSpecific">
-            <thead>
-              <tr>
-                <th>Employee ID</th>
-                <th>Name</th>
-                <th>Date</th>
-                <th>Reason</th>
-              </tr>
-            </thead>
-            <tbody>
-              {leaveRequests.map((request, index) => (
-                <tr key={index}>
-                  <td>{request.employeeId}</td>
-                  <td>{request.name}</td>
-                  <td>{request.date}</td>
-                  <td>{request.reason}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            <div className="table-container">
+              <h2>Attendance Records</h2>
+              <table id="attendanceTableSpecific">
+                <thead>
+                  <tr>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {attendanceRecords.map((record, index) => (
+                    <tr key={index}>
+                      <td>{record.employeeId}</td>
+                      <td>{record.name}</td>
+                      <td>{record.date}</td>
+                      <td>{record.time}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="table-container">
+              <h2>Leave Requests</h2>
+              <table id="leaveTableSpecific">
+                <thead>
+                  <tr>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Reason</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {leaveRequests.map((request, index) => (
+                    <tr key={index}>
+                      <td>{request.employeeId}</td>
+                      <td>{request.name}</td>
+                      <td>{request.date}</td>
+                      <td>{request.reason}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-    </div>
     </div>
   );
 };
