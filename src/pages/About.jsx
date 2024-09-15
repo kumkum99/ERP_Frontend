@@ -38,7 +38,7 @@ const About = () => {
                             foster growth, and drive sustainable success. We strive to deliver tailored ERP implementations that align
                             seamlessly with our clients' strategic objectives, enabling them to achieve operational excellence and competitive
                             advantage in their industries.
-                            <a href="mailto:info@example.com" className="button">Explore More...</a>
+                            <a href="mailto:erpUnity24@gmail.com" className="abt">Explore More...</a>
                         </p>
                     </div>
                 </section>

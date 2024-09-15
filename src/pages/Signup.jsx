@@ -15,6 +15,8 @@ const Signup = () => {
         username: '',
         password: '',
     });
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const nextStep = () => setStep(prevStep => prevStep + 1);
@@ -30,6 +32,8 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+        setError('');
         try {
             console.log('Submitting form with data:', formData);
             const response = await axios.post('http://localhost:5000/api/register', formData);
@@ -38,7 +42,9 @@ const Signup = () => {
             navigate('/login');
         } catch (error) {
             console.error('Error:', error);
-            alert('An error occurred while registering the user.');
+            setError('An error occurred while registering the user.');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -97,7 +103,6 @@ const Signup = () => {
                                         name="firstname"
                                         value={formData.firstname}
                                         onChange={handleChange}
-                                       
                                         required
                                     />
                                 </div>
@@ -108,7 +113,6 @@ const Signup = () => {
                                         name="lastname"
                                         value={formData.lastname}
                                         onChange={handleChange}
-                                        
                                         required
                                     />
                                 </div>
@@ -131,7 +135,6 @@ const Signup = () => {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        
                                         required
                                     />
                                 </div>
@@ -142,7 +145,6 @@ const Signup = () => {
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
-                                       
                                         required
                                     />
                                 </div>
@@ -168,7 +170,6 @@ const Signup = () => {
                                         name="dob"
                                         value={formData.dob}
                                         onChange={handleChange}
-                                       
                                         required
                                     />
                                 </div>
@@ -178,7 +179,6 @@ const Signup = () => {
                                         name="gender"
                                         value={formData.gender}
                                         onChange={handleChange}
-                                        
                                         required
                                     >
                                         <option value="">Select</option>
@@ -209,7 +209,6 @@ const Signup = () => {
                                         name="username"
                                         value={formData.username}
                                         onChange={handleChange}
-                                        
                                         required
                                     />
                                 </div>
@@ -220,7 +219,6 @@ const Signup = () => {
                                         name="password"
                                         value={formData.password}
                                         onChange={handleChange}
-                                        
                                         required
                                     />
                                 </div>
@@ -228,17 +226,17 @@ const Signup = () => {
                                     <button type="button" className="sumit-prev" onClick={prevStep}>
                                         Previous
                                     </button>
-                                    <button type="submit" className="sumit-submit">
-                                      Submit
+                                    <button type="submit" className="sumit-submit" disabled={loading}>
+                                      {loading ? 'Submitting...' : 'Submit'}
                                     </button>
                                 </div>
+                                {error && <p className="error-message">{error}</p>}
                             </div>
                         )}
                     </form>
                 </div>
-                <p>if you are Registered Login here <a href="/login" className="loginAnchor">Login</a></p>
+                <p>If you are already registered, login <a href="/login" className="loginAnchor">here</a></p>
             </div>
-          
         </div>
     );
 };

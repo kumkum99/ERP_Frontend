@@ -70,12 +70,17 @@ const Navbar = () => {
     };
 
     return (
-        <section id="nav-bar" data-header>
+        <section id="erp-navbar" data-header>
             <nav className="navbar navbar-expand-lg navbar-light py-lg-5 py-7">
                 <Link className="navbar-brand" to="/">
                     <i className="fab fa-slack"></i> ERP Unity
                 </Link>
-                <button className="navbar-toggler" type="button" onClick={() => setNavExpanded(!navExpanded)} aria-expanded={navExpanded}>
+                <button 
+                    className="navbar-toggler" 
+                    type="button" 
+                    onClick={() => setNavExpanded(!navExpanded)} 
+                    aria-expanded={navExpanded}
+                >
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className={`collapse navbar-collapse ${navExpanded ? 'show' : ''}`} id="navbarNav">

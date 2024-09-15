@@ -63,11 +63,9 @@ const Login = () => {
   }
 
   return (
-
-    <div className="main-container"> 
-     
+    <div className="main-container">
       <div className="wrapper">
-     <a href="/"> <button id="loginBackButton">Home</button></a>
+      <a href="/"> <button id="loginBackButton">Home</button></a>
         <div className="title-text">
           <div className={`title ${isLoginMode ? "login" : "signup"}`}>
             {isLoginMode ? "Admin Login" : "Employee Login"}
