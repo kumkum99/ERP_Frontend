@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Chart from 'react-apexcharts';
-import './PagesCss.css'; 
+import { Col, Card } from 'react-bootstrap'; // Make sure you have react-bootstrap installed
+import { FaBox } from 'react-icons/fa'; // Make sure you have react-icons installed
+import './PagesCss.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
 import Sidebar from '../../AdminDashboardPages/AdminSidebar';
 
@@ -36,13 +38,48 @@ function Orders() {
     },
   };
 
-  // Sample orders data
-  const orders = [
-    { id: 1, date: '2024-09-01', status: 'Booked', amount: 100 },
-    { id: 2, date: '2024-09-02', status: 'Cancelled', amount: 50 },
-    { id: 3, date: '2024-09-03', status: 'Due', amount: 75 },
-    // Add more orders as needed
-  ];
+  // State for purchase and sales orders
+  const [purchaseOrders, setPurchaseOrders] = useState([]);
+  const [salesOrders, setSalesOrders] = useState([]);
+
+  // State for new purchase and sales entries
+  const [newPurchaseOrder, setNewPurchaseOrder] = useState({ item: '', quantity: '', date: '' });
+  const [newSalesOrder, setNewSalesOrder] = useState({ item: '', quantity: '', date: '' });
+
+  // Handlers for purchase order input changes
+  const handlePurchaseInputChange = (e) => {
+    const { id, value } = e.target;
+    setNewPurchaseOrder((prevOrder) => ({
+      ...prevOrder,
+      [id]: value
+    }));
+  };
+
+  // Handlers for sales order input changes
+  const handleSalesInputChange = (e) => {
+    const { id, value } = e.target;
+    setNewSalesOrder((prevOrder) => ({
+      ...prevOrder,
+      [id]: value
+    }));
+  };
+
+  // Add new purchase order
+  const addPurchaseOrder = (e) => {
+    e.preventDefault();
+    setPurchaseOrders([...purchaseOrders, newPurchaseOrder]);
+    setNewPurchaseOrder({ item: '', quantity: '', date: '' });
+  };
+
+  // Add new sales order
+  const addSalesOrder = (e) => {
+    e.preventDefault();
+    setSalesOrders([...salesOrders, newSalesOrder]);
+    setNewSalesOrder({ item: '', quantity: '', date: '' });
+  };
+
+  // Dynamic order count for the card
+  const orderCount = salesOrders.length;
 
   return (
     <div className="d-flex flex-column">
@@ -50,57 +87,147 @@ function Orders() {
       <div className="d-flex flex-grow-1">
         <Sidebar />
         <div id="payment-table-container" className='col-xl-10 col-lg-9 col-md-6 col-sm-12'>
-                            <div id="payment-header" className='card-8 rounded-border mb-4'>
-                                <h1><i className="fa fa-shopping-bag" style={{ fontSize: "30px" }}></i> Orders Review</h1>
-                                <hr />
-                            </div>
+          <div id="payment-header" className='card-8 rounded-border mb-4'>
+            <h1><i className="fa fa-shopping-bag" style={{ fontSize: "30px" }}></i> Orders Review</h1>
+            <hr />
+          </div>
 
-      <div className="charts-container">
-        <div className="chart">
-          <Chart
-            options={dailyOrderData.options}
-            series={dailyOrderData.series}
-            type="pie"
-            width="400"
-          />
-          <h2>Daily Orders</h2>
-        </div>
-        <div className="chart">
-          <Chart
-            options={monthlyOrderData.options}
-            series={monthlyOrderData.series}
-            type="pie"
-            width="400"
-          />
-          <h2>Monthly Orders</h2>
+          {/* Card displaying the dynamic order count */}
+          <Col md={3} sm={6} className="mb-4">
+            <Card className="text-center card-width card-orders">
+              <Card.Body className="dashCard">
+                <FaBox size={40} />
+                <Card.Title className='mainCardText'>Orders</Card.Title>
+                <Card.Text className='CardTitle'>{orderCount}</Card.Text> {/* Dynamic order count */}
+              </Card.Body>
+            </Card>
+          </Col>
+
+          {/* Pie Charts for Orders */}
+          <div className="charts-container">
+            <div className="chart">
+              <Chart
+                options={dailyOrderData.options}
+                series={dailyOrderData.series}
+                type="pie"
+                width="400"
+              />
+              <h2>Daily Orders</h2>
+            </div>
+            <div className="chart">
+              <Chart
+                options={monthlyOrderData.options}
+                series={monthlyOrderData.series}
+                type="pie"
+                width="400"
+              />
+              <h2>Monthly Orders</h2>
+            </div>
+          </div>
+
+          {/* Purchase Order Form */}
+          <div className="orders-section">
+            <h2>Purchase Orders</h2>
+            <form onSubmit={addPurchaseOrder}>
+              <input
+                type="text"
+                id="item"
+                placeholder="Item"
+                value={newPurchaseOrder.item}
+                onChange={handlePurchaseInputChange}
+                required
+              />
+              <input
+                type="number"
+                id="quantity"
+                placeholder="Quantity"
+                value={newPurchaseOrder.quantity}
+                onChange={handlePurchaseInputChange}
+                required
+              />
+              <input
+                type="date"
+                id="date"
+                value={newPurchaseOrder.date}
+                onChange={handlePurchaseInputChange}
+                required
+              />
+              <button type="submit">Add Purchase Order</button>
+            </form>
+
+            {/* Purchase Order Table */}
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {purchaseOrders.map((order, index) => (
+                  <tr key={index}>
+                    <td>{order.item}</td>
+                    <td>{order.quantity}</td>
+                    <td>{order.date}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Sales Order Form */}
+          <div className="orders-section">
+            <h2>Sales Orders</h2>
+            <form onSubmit={addSalesOrder}>
+              <input
+                type="text"
+                id="item"
+                placeholder="Item"
+                value={newSalesOrder.item}
+                onChange={handleSalesInputChange}
+                required
+              />
+              <input
+                type="number"
+                id="quantity"
+                placeholder="Quantity"
+                value={newSalesOrder.quantity}
+                onChange={handleSalesInputChange}
+                required
+              />
+              <input
+                type="date"
+                id="date"
+                value={newSalesOrder.date}
+                onChange={handleSalesInputChange}
+                required
+              />
+              <button type="submit">Add Sales Order</button>
+            </form>
+
+            {/* Sales Order Table */}
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {salesOrders.map((order, index) => (
+                  <tr key={index}>
+                    <td>{order.item}</td>
+                    <td>{order.quantity}</td>
+                    <td>{order.date}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-
-      <div className="orders-list">
-        <h2>Orders List</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map(order => (
-              <tr key={order.id}>
-                <td>{order.id}</td>
-                <td>{order.date}</td>
-                <td>{order.status}</td>
-                <td>${order.amount}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-    </div>
     </div>
   );
 }

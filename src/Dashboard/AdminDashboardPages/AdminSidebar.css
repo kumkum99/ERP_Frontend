@@ -1,42 +1,87 @@
 /* Sidebar Styling */
 .sidebar {
-    width: 300px; /* Fixed width for the sidebar */
-    background-color: #092542; /* Blue background color */
-    color: white; /* White text color */
-    height: calc(100vh - 60px); /* Full height minus the height of the navbar */
-    position: fixed; /* Fixed position */
-    top: 60px; /* Position below the navbar */
-    left: 0; /* Align to the left */
-    padding: 1rem; /* Padding inside the sidebar */
-    overflow-y: auto; /* Scroll if content overflows */
-  }
-  
-  .sidebar a {
-    color: white; /* White link color */
-    text-decoration: none; /* Remove underline from links */
-    display: block; /* Block display for links */
-    margin: 0.5rem 0; /* Spacing between links */
-    font-size:x-large;
-    width: 250px;
-   
-  }
-  
-  .sidebar a:hover {
-    background-color: #0b0e11; /* Darker blue background on hover */
-    padding: 0.5rem; /* Add padding on hover */
-    border-radius: 4px; /* Rounded corners on hover */
-  }
-  .sidebar .sidebar-icon {
-    margin-right: 5px; /* Space between icon and text */
+  width: 300px; /* Fixed width for the sidebar */
+  background-color: #092542; /* Blue background color */
+  color: white; /* White text color */
+  height: calc(100vh - 60px); /* Full height minus the height of the navbar */
+  position: fixed; /* Fixed position */
+  top: 60px; /* Position below the navbar */
+  left: 0; /* Align to the left */
+  padding: 1rem; /* Padding inside the sidebar */
+  overflow-y: auto; /* Scroll if content overflows */
+  transition: transform 0.3s ease; /* Smooth transition for sidebar */
+}
+
+/* Sidebar Links */
+.sidebar a {
+  color: white; /* White link color */
+  text-decoration: none; /* Remove underline from links */
+  display: block; /* Block display for links */
+  margin: 0.5rem 0; /* Spacing between links */
+  font-size: x-large;
+  width: 250px;
+}
+
+.sidebar a:hover {
+  background-color: #0b0e11; /* Darker blue background on hover */
+  padding: 0.5rem; /* Add padding on hover */
+  border-radius: 4px; /* Rounded corners on hover */
+}
+
+.sidebar .sidebar-icon {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+.p-3 {
+  margin-top: 1.5rem !important;
+}
+
+/* Center card text */
+.card-text {
+  text-align: center;
+}
+
+/* Toggle Button for Mobile/Tablet */
+.toggle-btn {
+  display: none; /* Hide the button on larger screens */
+}
+
+/* Responsive Sidebar for Mobile/Tablet */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%); /* Hide the sidebar by default on small screens */
+    width: 250px; /* Adjust width for smaller screens */
   }
 
-  .p-3{
-    margin-top: 1.5rem !important;
+  .sidebar.open {
+    transform: translateX(0); /* Show the sidebar when 'open' class is added */
   }
 
-  .card-text{
-    text-align: center;
+  .toggle-btn {
+    display: block; /* Show toggle button on small screens */
+    position: fixed; /* Fixed position on top */
+    top: 10px; /* Align with the navbar */
+    background-color: #092542; /* Match sidebar color */
+    color: white; /* White icon color */
+    border: none; /* Remove border */
+    padding: 10px; /* Padding for the button */
+    z-index: 999; /* Make sure the button is on top */
+    font-size: 1.5rem; /* Larger icon */
+    cursor: pointer; /* Pointer on hover */
+    border-radius: 4px; /* Rounded corners */
+  }
+}
+
+/* Additional CSS for Smaller Mobile Screens */
+@media (max-width: 576px) {
+  .sidebar {
+    width: 200px; /* Narrower sidebar on very small screens */
   }
 
-  
-  
+  .toggle-btn {
+    font-size: 1.3rem; /* Slightly smaller icon for mobile */
+    padding: 2px;
+    margin-top:50px; /* Adjust padding for mobile */
+    margin-right: 25px;
+  }
+}
