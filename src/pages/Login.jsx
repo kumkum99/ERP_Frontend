@@ -28,6 +28,7 @@ const Login = () => {
 
   // Function to handle admin login with static credentials
   const handleAdminLogin = async () => {
+    e.preventDefault();
     const apiUrl = `http://localhost:5000/api/admin/login?email=${email}&password=${password}`;
 
     try {
