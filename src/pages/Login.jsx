@@ -9,7 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isForgotPassword, setIsForgotPassword] = useState(false);
-
+  
   const handleLoginClick = () => {
     setIsLoginMode(true);
     resetForm();
@@ -25,10 +25,10 @@ const Login = () => {
     setPassword("");
     setErrorMessage("");
   };
-
+ 
   // Function to handle admin login with static credentials
   const handleAdminLogin = async () => {
-    e.preventDefault();
+   
     const apiUrl = `http://localhost:5000/api/admin/login?email=${email}&password=${password}`;
 
     try {
@@ -83,6 +83,7 @@ const Login = () => {
   };
 
   if (isForgotPassword) {
+   
     return <ForgotPassword goBack={() => setIsForgotPassword(false)} />;
   }
 
