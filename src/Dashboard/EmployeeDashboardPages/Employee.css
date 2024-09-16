@@ -89,3 +89,27 @@
 .mainCardText {
   font-size: 25px !important;
 }
+
+@media (max-width: 480px) {
+  .main-containerAdmin {
+    margin-left: 2px !important; 
+    margin-right: 150px !important;
+    width: calc(100% - 5px); 
+  }
+
+  .card-width {
+    width: 95% !important;
+    height: 130% !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 10px !important;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+}
+
+@media (max-width: 512px) {
+  .main-containerAdmin {
+    margin-left: 2px !important; 
+    margin-right: 150px !important;
+    width: calc(100% - 5px); 
+  }
+}

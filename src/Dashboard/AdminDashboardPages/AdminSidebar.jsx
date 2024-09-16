@@ -4,6 +4,7 @@ import { FaUsers, FaHome, FaBox, FaShoppingBag, FaChartBar, FaMoneyBillWave, FaC
 import { Link } from 'react-router-dom'; // Import Link for routing
 import './AdminSidebar.css'; // Ensure this path is correct and CSS file exists
 
+
 const Sidebar = () => {
   return (
     <div className="sidebar bg-dark-blue">
@@ -38,7 +39,7 @@ const Sidebar = () => {
           <FaComments className="sidebar-icon" /> Feedback
         </Nav.Link>
 
-        <Nav.Link as={Link} to="/settings">
+        <Nav.Link as={Link} to="/settingAdmin">
           {/* FaCog for Settings */}
           <FaCog className="sidebar-icon" /> Settings
         </Nav.Link>

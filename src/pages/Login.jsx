@@ -8,7 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [isForgotPassword, setIsForgotPassword] = useState(false);  // New state for forgot password
+  const [isForgotPassword, setIsForgotPassword] = useState(false);
 
   const handleLoginClick = () => {
     setIsLoginMode(true);
@@ -26,35 +26,58 @@ const Login = () => {
     setErrorMessage("");
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const loginType = isLoginMode ? "admin" : "employee";
-    const apiUrl = isLoginMode
-      ? `http://localhost:5000/api/admin/login?email=${email}&password=${password}`
-      : `http://localhost:5000/api/employee/login?email=${email}&password=${password}`;
+  // Function to handle admin login with static credentials
+  const handleAdminLogin = async () => {
+    const apiUrl = `http://localhost:5000/api/admin/login?email=${email}&password=${password}`;
 
     try {
       const response = await axios.get(apiUrl);
       console.log("Response from API ", response);
-      if (response.data === true) {
-        if (loginType === "admin") {
-          alert("Welcome to Admin Dashboard");
-          window.location.href = "/adminDashboard";
-        } else {
-          alert("Welcome to Employee Dashboard");
-          window.location.href = "/employeeDashboard";
-        }
+
+      const isValid = response.data; // Expecting a boolean response
+
+      if (isValid) {
+        alert("Welcome to Admin Dashboard");
+        window.location.href = "/adminDashboard";
       } else {
         setErrorMessage("Invalid credentials, please try again.");
       }
     } catch (error) {
       console.error("Login failed", error);
-      if (error.response && (error.response.status === 401 || error.response.status === 404)) {
-        setErrorMessage("Invalid credentials, please try again.");
+      setErrorMessage("An error occurred, please try again later.");
+    }
+  };
+
+  // Function to handle employee login
+  const handleEmployeeLogin = async () => {
+    const apiUrl = `http://localhost:5000/api/employee/login?email=${email}&password=${password}`;
+
+    try {
+      const response = await axios.get(apiUrl);
+      console.log("Response from API ", response);
+
+      const { isValid, Username } = response.data;
+
+      if (isValid) {
+        localStorage.setItem("employeeName", Username); // Store the employee's name in local storage
+        alert(`Welcome ${Username} to Employee Dashboard`);
+        window.location.href = "/employeeDashboard";
       } else {
-        setErrorMessage("An error occurred, please try again later.");
+        setErrorMessage("Invalid credentials, please try again.");
       }
+    } catch (error) {
+      console.error("Login failed", error);
+      setErrorMessage("An error occurred, please try again later.");
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (isLoginMode) {
+      await handleAdminLogin();
+    } else {
+      await handleEmployeeLogin();
     }
   };
 
@@ -65,11 +88,11 @@ const Login = () => {
   return (
     <div className="main-container">
       <div className="wrapper">
-      <a href="/" title="Go Back">
-        <svg xmlns="http://www.w3.org/2000/svg" class="back-icon" viewBox="0 0 24 24">
-            <path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"/>
-        </svg>
-    </a>
+        <a href="/" title="Go Back">
+          <svg xmlns="http://www.w3.org/2000/svg" className="back-icon" viewBox="0 0 24 24">
+            <path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z" />
+          </svg>
+        </a>
         <div className="title-text">
           <div className={`title ${isLoginMode ? "login" : "signup"}`}>
             {isLoginMode ? "Admin Login" : "Employee Login"}

@@ -1,32 +1,46 @@
-import * as React from 'react';
-import { LineChart } from '@mui/x-charts';
+import React from 'react';
+import { LineChart } from '@mui/x-charts/LineChart';
+import { Box } from '@mui/material';
 
-export default function BasicLineChart() {
+// Weekly task progress data
+const weeklyTaskData = [
+  { day: 'Monday', progress: 40 },
+  { day: 'Tuesday', progress: 55 },
+  { day: 'Wednesday', progress: 70 },
+  { day: 'Thursday', progress: 65 },
+  { day: 'Friday', progress: 80 },
+  { day: 'Saturday', progress: 90 },
+  { day: 'Sunday', progress: 75 },
+];
+
+const chartSettings = {
+  yAxis: [
+    {
+      label: 'Task Progress (%)',
+      min: 0,
+      max: 100, // Task progress in percentage
+    },
+  ],
+  width: 500,
+  height: 400,
+};
+
+export default function SimpleLineChart() {
   return (
-    <LineChart
-      width={500}
-      height={300} // Increased height to make room for X-axis labels
-      series={[
-        {
-          label: 'Progress',
-          data: [2, 5.5, 2, 8.5, 1.5, 5], // Data points
-        },
-      ]}
-      xAxis={[
-        {
-          label: 'Days', // Axis label
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], // X-axis data points
-          showGridLines: true, // Add grid lines for better visibility
-          tickSize: 10, // Increase tick size for visibility
-        },
-      ]}
-      yAxis={[
-        {
-          label: 'Progress', // Y-axis label
-          showGridLines: true, // Show grid lines on Y-axis
-        },
-      ]}
-      margin={{ top: 10, right: 20, bottom: 30, left: 50 }} // Add margin to avoid clipping
-    />
+    <Box sx={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
+      <LineChart
+        dataset={weeklyTaskData}
+        xAxis={[{ scaleType: 'band', dataKey: 'day' }]} // Days of the week on x-axis
+        series={[
+          {
+            dataKey: 'progress',
+            label: 'Task Progress',
+            color: 'green', // Line color for task progress
+            valueFormatter: (value) => `${value}%`,
+          },
+        ]}
+        {...chartSettings}
+      />
+    </Box>
   );
 }

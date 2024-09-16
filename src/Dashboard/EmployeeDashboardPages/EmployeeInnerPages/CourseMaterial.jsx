@@ -50,7 +50,7 @@ const CourseMaterial = () => {
                   <td>4 Weeks</td>
                   <td><a href="https://www.w3schools.com/js/">View Course</a></td>
                   <td>
-                    <button onClick={() => handleStartCourse('JavaScript Essentials')}>Start</button><br />
+                    <button onClick={() => handleStartCourse('JavaScript Essentials')}>Start</button><br /><br/>
                     <button onClick={() => handleCompleteCourse('JavaScript Essentials')}>Complete</button>
                   </td>
                 </tr>
@@ -60,7 +60,7 @@ const CourseMaterial = () => {
     <td>3 Weeks</td>
     <td><a href="https://www.w3schools.com/html/">View Course</a></td>
     <td>
-      <button onClick={() => handleStartCourse('HTML & CSS Basics')}>Start</button><br />
+      <button onClick={() => handleStartCourse('HTML & CSS Basics')}>Start</button><br /><br/>
       <button onClick={() => handleCompleteCourse('HTML & CSS Basics')}>Complete</button>
     </td>
   </tr>
@@ -70,7 +70,7 @@ const CourseMaterial = () => {
     <td>4 Weeks</td>
     <td><a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">View Course</a></td>
     <td>
-      <button onClick={() => handleStartCourse('Java Programming')}>Start</button><br />
+      <button onClick={() => handleStartCourse('Java Programming')}>Start</button><br /><br/>
       <button onClick={() => handleCompleteCourse('Java Programming')}>Complete</button>
     </td>
   </tr>
@@ -80,7 +80,7 @@ const CourseMaterial = () => {
     <td>5 Weeks</td>
     <td><a href="https://reactjs.org/docs/getting-started.html">View Course</a></td>
     <td>
-      <button onClick={() => handleStartCourse('React JS Fundamentals')}>Start</button><br />
+      <button onClick={() => handleStartCourse('React JS Fundamentals')}>Start</button><br /><br/>
       <button onClick={() => handleCompleteCourse('React JS Fundamentals')}>Complete</button>
     </td>
   </tr>
@@ -90,7 +90,7 @@ const CourseMaterial = () => {
     <td>4 Weeks</td>
     <td><a href="https://spring.io/projects/spring-boot">View Course</a></td>
     <td>
-      <button onClick={() => handleStartCourse('Spring Boot Introduction')}>Start</button><br />
+      <button onClick={() => handleStartCourse('Spring Boot Introduction')}>Start</button><br /><br/>
       <button onClick={() => handleCompleteCourse('Spring Boot Introduction')}>Complete</button>
     </td>
   </tr>
@@ -100,7 +100,7 @@ const CourseMaterial = () => {
     <td>3 Weeks</td>
     <td><a href="https://getbootstrap.com/docs/5.1/getting-started/introduction/">View Course</a></td>
     <td>
-      <button onClick={() => handleStartCourse('Bootstrap Basics')}>Start</button><br />
+      <button onClick={() => handleStartCourse('Bootstrap Basics')}>Start</button><br /><br/>
       <button onClick={() => handleCompleteCourse('Bootstrap Basics')}>Complete</button>
     </td>
   </tr>
@@ -110,7 +110,7 @@ const CourseMaterial = () => {
     <td>4 Weeks</td>
     <td><a href="https://www.w3schools.com/sql/">View Course</a></td>
     <td>
-      <button onClick={() => handleStartCourse('SQL Basics')}>Start</button><br />
+      <button onClick={() => handleStartCourse('SQL Basics')}>Start</button><br /><br/>
       <button onClick={() => handleCompleteCourse('SQL Basics')}>Complete</button>
     </td>
   </tr>
@@ -120,7 +120,7 @@ const CourseMaterial = () => {
     <td>4 Weeks</td>
     <td><a href="https://www.mongodb.com/try/download/community">View Course</a></td>
     <td>
-      <button onClick={() => handleStartCourse('MongoDB Basics')}>Start</button><br />
+      <button onClick={() => handleStartCourse('MongoDB Basics')}>Start</button><br /><br/>
       <button onClick={() => handleCompleteCourse('MongoDB Basics')}>Complete</button>
     </td>
   </tr>
@@ -130,7 +130,7 @@ const CourseMaterial = () => {
     <td>5 Weeks</td>
     <td><a href="https://aws.amazon.com/training/intro_series/">View Course</a></td>
     <td>
-      <button onClick={() => handleStartCourse('Cloud Computing Basics')}>Start</button><br />
+      <button onClick={() => handleStartCourse('Cloud Computing Basics')}>Start</button><br /><br/>
       <button onClick={() => handleCompleteCourse('Cloud Computing Basics')}>Complete</button>
     </td>
   </tr>
@@ -140,7 +140,7 @@ const CourseMaterial = () => {
     <td>4 Weeks</td>
     <td><a href="https://www.coursera.org/learn/computer-networking">View Course</a></td>
     <td>
-      <button onClick={() => handleStartCourse('Networking Fundamentals')}>Start</button><br />
+      <button onClick={() => handleStartCourse('Networking Fundamentals')}>Start</button><br /><br/>
       <button onClick={() => handleCompleteCourse('Networking Fundamentals')}>Complete</button>
     </td>
   </tr>
@@ -150,7 +150,7 @@ const CourseMaterial = () => {
     <td>3 Weeks</td>
     <td><a href="https://www.ideou.com/pages/design-thinking">View Course</a></td>
     <td>
-      <button onClick={() => handleStartCourse('Design Thinking')}>Start</button><br />
+      <button onClick={() => handleStartCourse('Design Thinking')}>Start</button><br /><br/>
       <button onClick={() => handleCompleteCourse('Design Thinking')}>Complete</button>
     </td>
   </tr>

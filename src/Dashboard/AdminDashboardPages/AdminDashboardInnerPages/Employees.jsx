@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './PagesCss.css';  // Ensure this imports your CSS file
-import Sidebar from '../AdminSidebar';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
+import Sidebar from '../../AdminDashboardPages/AdminSidebar';
 
 function Employees() {
   const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('userProfile')) || []);
@@ -90,8 +90,11 @@ function Employees() {
     <div className="d-flex flex-grow-1">
       <Sidebar />
       
-          <div id="employee-management">
-      <h1 id="form-title">Employee Management</h1>
+      <div id="payment-table-container" className='col-xl-10 col-lg-9 col-md-6 col-sm-12'>
+                            <div id="payment-header" className='card-8 rounded-border mb-4'>
+                                <h1><i className="fa fa-users" style={{ fontSize: "30px" }}></i> Employee Mangement</h1>
+                                <hr />
+                            </div>
       
       {/* Add Employee Form */}
       <form id="employee-form" onSubmit={handleSubmit}>

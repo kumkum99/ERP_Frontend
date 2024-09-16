@@ -11,6 +11,8 @@ import AdminDash from './Dashboard/AdminDash';
 import EmployeeDash from './Dashboard/EmployeeDash';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import ResetPassword from './components/ResetPassword/ResetPassword';
+
+// employee Dashboard importation
 import Profile from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/Profile';
 import AttendanceLeave from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/AttendanceLeave';
 import Calendar from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/Calendar';
@@ -21,11 +23,21 @@ import CourseMaterial from './Dashboard/EmployeeDashboardPages/EmployeeInnerPage
 import EmployeeCourseProgress from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/EmployeeCourseProgress';
 import EmployeeDocumentation from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/EmployeeDocumentation';
 import SettingsPage from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/SettingsPage';
+
+// admin Dashboard importation
 import Employees from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Employees';
+import Feedback from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Feedback';
+import Orders from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Orders';
+import Payment from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Payment';
+import Product from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Product';
+import Reports from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Reports';
+import Setting from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Setting';
+
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { GlobalSettingsProvider } from './Dashboard/context/GlobalSettingsContext';
 import { CourseProvider } from './Dashboard/context/CourseContext'; // Import the CourseProvider
+
 
 function App() {
     return (
@@ -55,6 +67,13 @@ function App() {
                             <Route path="/employeeDocumentation" element={<EmployeeDocumentation />} />
                             <Route path="/settings" element={<SettingsPage />} />
                             <Route path="/employees" element={<Employees />} />
+                            <Route path="/feedback" element={<Feedback />} />
+                            <Route path="/orders" element={<Orders />} />
+                            <Route path="/payments" element={<Payment />} />
+                            <Route path="/products" element={<Product />} />
+                            <Route path="/reports" element={<Reports />} />
+                            <Route path="/settingAdmin" element={<Setting />} />
+                           
                         </Routes>
                     </Router>
                 </div>

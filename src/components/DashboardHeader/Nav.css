@@ -1,75 +1,137 @@
 /* Navbar Styling */
 .navbar-custom {
-    background-color: #818292 !important; /* Background color */
-    height: 75px; /* Set the height of the navbar */
-    position: -webkit-sticky; /* For Safari */
-    position: sticky !important; /* For other browsers */
-    top: 0; /* Stick the navbar to the top */
-    z-index: 800; /* Ensure the navbar stays on top of other content */
-    width: 100%; /* Ensure the navbar takes full width */
+  background-color: #818292 !important; /* Background color */
+  height: 75px; /* Set the height of the navbar */
+  position: -webkit-sticky; /* For Safari */
+  position: sticky !important; /* For other browsers */
+  top: 0; /* Stick the navbar to the top */
+  z-index: 800; /* Ensure the navbar stays on top of other content */
+  width: 100%; /* Ensure the navbar takes full width */
 }
 
 .navbar-custom .navbar-brand {
-    height: 100%; /* Ensure the brand takes full height */
-    display: flex;
-    align-items: center; /* Center the brand vertically */
+  height: 100%; /* Ensure the brand takes full height */
+  display: flex;
+  align-items: center; /* Center the brand vertically */
 }
 
 .navbar-custom .nav-link {
-    color: #fff; /* White text color */
-    display: flex;
-    align-items: center; /* Center icons vertically */
+  color: #fff; /* White text color */
+  display: flex;
+  align-items: center; /* Center icons vertically */
 }
 
 .navbar-custom .nav-link:hover {
-    color: #0c0808; /* Lighter color on hover */
+  color: #0c0808; /* Lighter color on hover */
 }
 
 .nav-icon {
-    font-size: 20px; /* Size of the icons */
+  font-size: 20px; /* Size of the icons */
 }
+
 /* Search bar styling */
 .search-bar-form {
-    flex-grow: 1;
-    max-width: 250px;
-    /* display: flex; */
-    align-items: center;
-    margin-left: 50px !important;
+  flex-grow: 1;
+  max-width: 300px; /* Adjust max width for larger screens */
+  align-items: center;
+  margin-left: 50px !important;
+}
+
+.search-bar-input {
+  border-radius: 20px;
+  padding: 8px 16px;
+  flex: 1;
+}
+
+.search-icon {
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.search-icon:hover {
+  color: #00aaff;
+}
+
+/* Highlighted text */
+.highlight {
+  background-color: rgb(90, 81, 160);
+  font-weight: bold;
+}
+
+/* Content styling */
+.content {
+  margin: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .navbar-custom {
+    padding: 10px;
   }
-  
+
+  .search-bar-form {
+    max-width: 100%;
+    margin-left: 0 !important;
+  }
+
   .search-bar-input {
-    border-radius: 20px;
-    padding: 8px 16px;
-    flex: 1;
+    padding: 6px 12px;
   }
-  
-  .search-icon {
-    color: white;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: color 0.3s ease;
+
+  .nav-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
-  
-  .search-icon:hover {
-    color: #00aaff;
+
+  .nav-icon {
+    margin: 0 5px;
   }
-  
-  /* Highlighted text */
-  .highlight {
-    background-color: rgb(90, 81, 160);
-    font-weight: bold;
+}
+/* Media Queries for Mobile Screens */
+@media (max-width: 576px) {
+  .navbar-custom {
+    padding: 10px;
+    height: auto; /* Adjust height for mobile */
+    flex-direction: column; /* Stack elements vertically */
   }
-  
-  /* Content styling */
-  .content {
-    margin: 20px;
+
+  .navbar-custom .navbar-brand {
+    margin-bottom: 10px; /* Add space below the brand for mobile */
+  }
+
+  .search-bar-form {
+    max-width: 100%; /* Search bar takes full width on mobile */
+    margin: 10px 0; /* Add some margin around search bar */
+  }
+
+  .search-bar-input {
+    padding: 6px 12px;
+    width: 100%; /* Ensure search bar fills available width */
+  }
+
+  .nav-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-icon {
+    margin: 0 5px;
+  }
+
+  /* Adjust the font size of the icons for mobile */
+  .nav-icon svg {
     font-size: 18px;
-    color: #333;
   }
-  
-  @media (max-width: 768px) {
-    .search-bar-form {
-      max-width: 100%;
-    }
+
+  /* Ensure that the search icon stays aligned */
+  .search-icon {
+    margin-left: 5px;
   }
-  
+}

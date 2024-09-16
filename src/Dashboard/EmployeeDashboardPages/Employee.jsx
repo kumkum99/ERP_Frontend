@@ -172,22 +172,7 @@ const Employee = () => {
                 <Card className="chart-card">
                   <Card.Header>Attendance & Leave</Card.Header>
                   <Card.Body>
-                    <div className="chart-container">
-                      <BarChart
-                        width={500}
-                        height={300}
-                        series={[{
-                          label: 'Attendance',
-                          data: [80, 75, 90, 85, 60, 70], // Sample data
-                        }, {
-                          label: 'Leave',
-                          data: [5, 10, 2, 7, 12, 3], // Sample data
-                        }]}
-                        yAxis={{
-                          showGridLines: true,
-                        }}
-                      />
-                    </div>
+                  <BarChart />
                   </Card.Body>
                 </Card>
               </Col>
@@ -197,27 +182,7 @@ const Employee = () => {
                 <Card className="chart-card">
                   <Card.Header>Task Progress</Card.Header>
                   <Card.Body>
-                    <div className="chart-container">
-                      <Chart
-                        width={500}
-                        height={300}
-                        series={[{
-                          label: 'Progress',
-                          data: [2, 5.5, 2, 8.5, 1.5, 5],
-                        }]}
-                        xAxis={{
-                          label: 'Days',
-                          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                          showGridLines: true,
-                          tickSize: 10,
-                        }}
-                        yAxis={{
-                          label: 'Progress',
-                          showGridLines: true,
-                        }}
-                        margin={{ top: 30, right: 20, bottom: 50, left: 50 }}
-                      />
-                    </div>
+                    <Chart />
                   </Card.Body>
                 </Card>
               </Col>

@@ -116,11 +116,15 @@
 @media (max-width: 576px) {
   .sidebar {
     width: 220px; /* Smaller width for mobile */
-    transform: translateX(-220px); /* Hide by default */
+    transform: translateX(-220px); 
+    z-index: 1000 !important; /* Hide by default */
   }
 
   .sidebar.active {
     transform: translateX(0); /* Slide in when active */
+  }
+  .toggle-sidebar-btn{
+    height: 5px !important;
   }
 
   .sidebar a {
@@ -134,9 +138,7 @@
 }
 
 .dropdown-toggle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+ 
   cursor: pointer;
   color: white !important;
   padding: 0.75rem;

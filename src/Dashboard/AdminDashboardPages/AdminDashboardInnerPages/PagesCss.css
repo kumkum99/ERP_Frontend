@@ -1,8 +1,8 @@
 #employee-management {
     font-family: Arial, sans-serif;
     margin: 20px;
-    width: 900px;
-    margin-left: 450px;
+    max-width: 70px;
+    margin-left: 370px;
   }
   
   #form-title {
@@ -16,9 +16,9 @@
     flex-direction: column;
     gap: 15px;
     padding: 20px;
-    border: 1px solid #ddd !important;
-    border-radius: 8px !important;
-    background-color: #c2bdbd;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
   }
   
   #img-holder {
@@ -51,14 +51,14 @@
   
   .input-text {
     padding: 10px;
-    border: 1px solid #3f3737 !important;
-    border-radius: 4px !important;
+    border: 1px solid #969595;
+    border-radius: 4px;
   }
   
   #submit-btn {
     width: 100%;
     padding: 12px;
-    background-color: #0066cc;
+    background-color: #092542;
     color: white;
     border: none;
     border-radius: 4px;
@@ -79,7 +79,7 @@
   
   #employee-table th,
   #employee-table td {
-    border: 1px solid #5d5c5c !important;
+    border: 1px solid #ddd;
     padding: 12px;
     text-align: center;
   }
@@ -119,4 +119,469 @@
   .action-btn:hover {
     opacity: 0.8;
   }
+
+
+#payment-page {
+  background-color: #f8f9fa; /* Light background color for the whole page */
+  min-height: 100vh; /* Ensure the page takes full viewport height */
+}
+
+#sidebar-container {
+  display: flex;
+  flex-grow: 1;
+}
+
+#main-content {
+  padding: 2rem;
+  background-color: #ffffff; /* White background for the main content area */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-left: 1rem; /* Space between sidebar and main content */
+}
+/*payment*/
+
+#payment-table-container {
+  width: 60%;
+  margin-left: 400px;
+}
+
+#payment-header {
+  padding: 1rem;
+  background-color: #092542; /* Bootstrap primary color */
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+#payment-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+#payment-table-card {
+  background-color: #ffffff; /* White background for the table card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#payment-table {
+  width: 100%;
+  border-collapse: collapse; /* Collapse table borders */
+}
+
+#payment-table th, #payment-table td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+#payment-table th {
+  background-color: #f1f1f1; /* Light grey background for table headers */
+  color: #333; /* Dark text color for contrast */
+}
+
+#payment-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternating row colors */
+}
+
+#payment-table tr:hover {
+  background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+
+.admin-dashboard {
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 20px;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
+
+/* Special styling for payment rows using IDs */
+#payment-P001 {
+  background-color: #e0ffe0; /* Light green for completed payments */
+}
+
+#payment-P002 {
+  background-color: #ffffe0; /* Light yellow for pending payments */
+}
+
+#payment-P003 {
+  background-color: #ffe0e0; /* Light red for failed payments */
+}
+
+
+/* Product.css */
+
+#product-table-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin-left: 370px;
+  width: 70%;
+}
+
+#product-header {
+  padding: 1rem;
+    background-color: #092542;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+#product-form {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-field {
+  margin-bottom: 15px;
+}
+
+.input-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-text {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #969595;
+  border-radius: 5px;
+  box-sizing: border-box;
   
+}
+
+#submit-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #092542;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#submit-btn:hover {
+  background-color: #0056b3;
+}
+
+#product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#product-table th, #product-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#product-table th {
+  background-color: #161a48;
+  color: white;
+}
+
+.table-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.view-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: #218838;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+#profile-pic {
+  border-radius: 50%;
+}
+
+#img-holder {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.upload-label {
+  display: block;
+  cursor: pointer;
+  font-size: 14px;
+  color: #007bff;
+}
+
+.upload-label i {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+/* Orders */
+
+.orders-page {
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin-left: 370px;
+}
+
+.charts-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.chart {
+  width: 400px;
+  text-align: center;
+}
+
+.orders-list {
+  margin-top: 20px;
+}
+
+.orders-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-list th, .orders-list td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.orders-list th {
+  background-color: #007bff;
+  color: white;
+}
+
+.orders-list tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Report */
+
+
+.company-progress-report {
+  padding: 5px;
+  background-color: #f9f9f9;
+
+}
+
+.chart-container {
+  margin-bottom: 20px;
+}
+
+.financial-table {
+  margin-top: 20px;
+}
+
+.financial-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.financial-table th, .financial-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.financial-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.financial-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Feedback*/
+
+.feedback-page {
+  background-color: #f8f9fa;
+  height: 100vh;
+  border-radius: 30%;
+  
+}
+
+.feedback-header {
+  color: #4a4a4a;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.feedback-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 350px;
+}
+
+.table {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.table th, .table td {
+  font-size: 16px;
+  text-align: left;
+  padding: 12px;
+}
+
+.table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e0e0e0;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .feedback-container {
+      padding: 10px;
+  }
+
+  .table th, .table td {
+      font-size: 14px;
+      padding: 8px;
+  }
+
+  .feedback-header {
+      font-size: 24px;
+  }
+}
+
+/* AdminSettings */
+
+.settings-page {
+  background-color: #f4f7fa;
+  height: 100vh;
+  margin-left: 360px;
+  
+}
+
+.settings-header {
+  color: #4a4a4a;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.settings-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.settings-section h3 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.form-check-input {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .settings-section {
+      padding: 10px;
+  }
+
+  .settings-header {
+      font-size: 24px;
+  }
+}

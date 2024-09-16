@@ -9,21 +9,21 @@ const EmployeeDocumentation = () => {
     const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
   // Sample employee data (this can be fetched dynamically from an API or database)
   const employeeData = {
-    name: 'John Doe',
-    jobTitle: 'Senior Software Engineer',
+    name: 'Kumkum Singh',
+    jobTitle: 'Web Developer',
     department: 'Development',
     contactInfo: {
-      phone: '+1 (123) 456-7890',
-      email: 'john.doe@example.com',
-      location: 'San Francisco, CA',
+      phone: '+91 9870672129',
+      email: 'kumkum.singh8899@gmail.com',
+      location: 'Lucknow',
     },
     skills: ['JavaScript', 'React', 'Node.js', 'Python', 'SQL', 'Java'],
     experience: [
       {
-        jobTitle: 'Software Engineer',
-        company: 'Tech Solutions Inc.',
+        jobTitle: 'Web Developer',
+        company: 'TCS',
         duration: 'Jan 2020 - Present',
-        description: 'Developed full-stack web applications using React, Node.js, and PostgreSQL.'
+        description: 'Developed full-stack web applications using React, Springboot, and MySQL.'
       },
       {
         jobTitle: 'Junior Developer',
@@ -34,24 +34,24 @@ const EmployeeDocumentation = () => {
     ],
     education: [
       {
-        degree: 'B.Sc. in Computer Science',
-        university: 'University of California, Berkeley',
-        year: '2016',
+        degree: 'ADIT Diploma in IT and Cloud Computing',
+        college: 'NSTI Noida',
+        year: '2024',
       },
     ],
     projects: [
       {
-        projectName: 'E-commerce Platform',
-        description: 'Developed a full-fledged e-commerce website using React and Node.js.',
+        projectName: 'Mathura Darshan',
+        description: 'Developed a full-fledged Tourism website using HTML, CSS, JS and PHP .',
         status: 'Completed',
       },
       {
-        projectName: 'CRM System',
-        description: 'Building a customer relationship management system using Python and Flask.',
+        projectName: 'Agro Village',
+        description: 'Building a Farming management system using Django.',
         status: 'In Progress',
       },
     ],
-    achievements: ['Certified Java Developer', 'Employee of the Year - 2022'],
+    achievements: ['Certified Java Developer', 'Employee of the Year - 2024'],
     progress: 'Excellent',
   };
 
