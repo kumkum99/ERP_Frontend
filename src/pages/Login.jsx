@@ -30,7 +30,7 @@ const Login = () => {
   // Function to handle admin login with static credentials
   const handleAdminLogin = async () => {
    
-    const apiUrl = `http://localhost:5000/api/admin/login?email=${email}&password=${password}`;
+    const apiUrl = `https://erpunity-production.up.railway.app/api/admin/login?email=${email}&password=${password}`;
 
     try {
       const response = await axios.get(apiUrl);
@@ -52,7 +52,7 @@ const Login = () => {
 
   // Function to handle employee login
   const handleEmployeeLogin = async () => {
-    const apiUrl = `http://localhost:5000/api/employee/login?email=${email}&password=${password}`;
+    const apiUrl = `https://erpunity-production.up.railway.app/api/employee/login?email=${email}&password=${password}`;
 
     try {
       const response = await axios.get(apiUrl);

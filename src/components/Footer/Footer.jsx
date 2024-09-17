@@ -1,6 +1,7 @@
 import React from 'react';
-import '../../App.css'; // Import the CSS file
 import { Link } from 'react-router-dom';
+import '../../App.css'; // Import the CSS file
+
 const Footer = () => {
   return (
     <section>
@@ -22,7 +23,7 @@ const Footer = () => {
           <div className="link-boxes">
             <ul className="box">
               <li className="link_name">Company</li>
-              <li><Link to="/">Home</Link></li>
+                <li><Link to="/">Home</Link></li>
               <li><Link to="/contact">Contact us</Link></li>
               <li><Link to="/about">About us</Link></li>
               <li><Link to="/Services">Services</Link></li>
