@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css'; // Import the CSS file
-
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <section>
@@ -22,10 +22,10 @@ const Footer = () => {
           <div className="link-boxes">
             <ul className="box">
               <li className="link_name">Company</li>
-              <li><a href="/">Home</a></li>
-              <li><a href="/contact">Contact us</a></li>
-              <li><a href="/about">About us</a></li>
-              <li><a href="/Services">Services</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/contact">Contact us</Link></li>
+              <li><Link to="/about">About us</Link></li>
+              <li><Link to="/Services">Services</Link></li>
             </ul>
             <ul className="box">
               <li className="link_name">Services</li>

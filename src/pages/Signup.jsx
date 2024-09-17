@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 import "./signup.css";
 import { useNavigate } from 'react-router-dom';
@@ -235,7 +236,7 @@ const Signup = () => {
                         )}
                     </form>
                 </div>
-                <p>If you are already registered, login <a href="/login" className="loginAnchor">here</a></p>
+                <p>If you are already registered, login <Link to="/login" className="loginAnchor">here</Link></p>
             </div>
         </div>
     );

@@ -98,9 +98,9 @@ const Navbar = () => {
                             <Link className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`} to="/contact" onClick={() => setNavExpanded(false)}>Contact</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/login">
+                            <Link className="nav-link" to="/login">
                                 <i className="fa fa-user" aria-hidden="true"></i> Login
-                            </a>
+                            </Link>
                         </li>
                         <li className="search-container">
                             <input
