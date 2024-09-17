@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "../App.css";
 import ForgotPassword from '../components/ForgotPassword/ForgotPassword';
@@ -40,7 +40,7 @@ const Login = () => {
 
       if (isValid) {
         alert("Welcome to Admin Dashboard");
-        window.location.href = "app/adminDashboard";
+        navigate('/adminDashboard');
       } else {
         setErrorMessage("Invalid credentials, please try again.");
       }
