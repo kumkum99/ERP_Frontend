@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 import "../App.css";
 import ForgotPassword from '../components/ForgotPassword/ForgotPassword';
@@ -158,14 +159,14 @@ const Login = () => {
               </div>
               {errorMessage && <p className="error-message">{errorMessage}</p>}
               <div className="pass-link">
-                <a href="/forgotPassword" onClick={() => setIsForgotPassword(true)}>Forgot password?</a>
+                <Link to="/forgotPassword" onClick={() => setIsForgotPassword(true)}>Forgot password?</Link>
               </div>
               <div className="field btn">
                 <div className="btn-layer"></div>
                 <input type="submit" value="Login" />
               </div>
               <div className="signup-link">
-                Not a member? <a href="/signup">Signup now</a>
+                Not a member? <Link to="/signup">Signup now</Link>
               </div>
             </form>
           </div>
