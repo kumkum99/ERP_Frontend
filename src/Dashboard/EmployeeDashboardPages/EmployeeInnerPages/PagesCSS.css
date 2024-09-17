@@ -1109,5 +1109,124 @@ h2 {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   }
 }
+
+/* Feedback */
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+#feedback-form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  margin: 20px auto;
+  margin-left:500px;
+  width: 900px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+#feedback-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#feedback-description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#feedback-comments-paragraph {
+  margin-bottom: 10px;
+}
+
+/* Submit Button Styles */
+#feedback-submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#feedback-submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  #feedback-form-container {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  #feedback-title {
+    font-size: 2rem;
+  }
+
+  #feedback-description {
+    font-size: 1rem;
+  }
+
+  #feedback-submit-button {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+/* Additional Mobile Optimizations */
+@media (max-width: 480px) {
+  #feedback-form-container {
+  width: 2000px;
+
+  }
+
+  #feedback-title {
+    font-size: 1.75rem;
+  }
+
+  #feedback-description {
+    font-size: 0.9rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    font-size: 0.9rem;
+  }
+}
+
  
   

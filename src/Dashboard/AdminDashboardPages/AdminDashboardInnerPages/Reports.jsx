@@ -1,95 +1,99 @@
-import React from 'react';
-import Chart from 'react-apexcharts';
-import './PagesCss.css'; 
+import React, { useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
+import jsPDF from 'jspdf';
+import './PagesCss.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
 import Sidebar from '../../AdminDashboardPages/AdminSidebar';
 
 function Reports() {
-  // Sample data for progress charts
-  const progressData = {
-    sales: {
-      series: [60, 30, 10], // Sales data (Product A, Product B, Product C)
-      options: {
-        chart: {
-          type: 'pie',
-        },
-        labels: ['Product A', 'Product B', 'Product C'],
-        title: {
-          text: 'Sales Distribution',
-          align: 'center',
-        },
-        colors: ['#007bff', '#28a745', '#ffc107'], // Custom colors
-        legend: {
-          position: 'bottom',
-        },
-      },
-    },
-    expenses: {
-      series: [40, 35, 25], // Expense data (Marketing, Salaries, Miscellaneous)
-      options: {
-        chart: {
-          type: 'pie',
-        },
-        labels: ['Marketing', 'Salaries', 'Miscellaneous'],
-        title: {
-          text: 'Expense Distribution',
-          align: 'center',
-        },
-        colors: ['#17a2b8', '#fd7e14', '#6c757d'], // Custom colors
-        legend: {
-          position: 'bottom',
-        },
-      },
-    },
+  // Sample data for production report
+  const productionReports = [
+    { id: 'PR001', product: 'PC Assembly', unitsProduced: 500, costPerUnit: '₹30,000', totalCost: '₹15,000,000', productionDate: '2024-09-01' },
+    { id: 'PR002', product: 'Laptop Assembly', unitsProduced: 300, costPerUnit: '₹50,000', totalCost: '₹15,000,000', productionDate: '2024-09-10' },
+    { id: 'PR003', product: 'Keyboard Manufacturing', unitsProduced: 1000, costPerUnit: '₹1,000', totalCost: '₹1,000,000', productionDate: '2024-09-15' },
+    { id: 'PR004', product: 'Monitor Production', unitsProduced: 200, costPerUnit: '₹20,000', totalCost: '₹4,000,000', productionDate: '2024-09-20' },
+    { id: 'PR005', product: 'Mouse Manufacturing', unitsProduced: 800, costPerUnit: '₹500', totalCost: '₹400,000', productionDate: '2024-09-25' },
+  ];
+
+  // Ref for the table to print
+  const tableRef = useRef();
+
+  // Function to download report as a PDF
+  const downloadPDF = () => {
+    const doc = new jsPDF();
+    doc.text('Company Production Report', 10, 10);
+
+    const tableRows = productionReports.map(report => [
+      report.id,
+      report.product,
+      report.unitsProduced,
+      report.costPerUnit,
+      report.totalCost,
+      report.productionDate,
+    ]);
+
+    doc.autoTable({
+      head: [['ID', 'Product', 'Units Produced', 'Cost per Unit', 'Total Cost', 'Production Date']],
+      body: tableRows,
+      startY: 20,
+    });
+
+    doc.save('production_reports.pdf');
   };
 
-  // Sample financial summary data
-  const financialSummary = [
-    { metric: 'Total Revenue', value: '$1,200,000' },
-    { metric: 'Total Expenses', value: '$800,000' },
-    { metric: 'Net Profit', value: '$400,000' },
-    { metric: 'Gross Margin', value: '33.33%' },
-    { metric: 'Operating Margin', value: '25.00%' },
-    { metric: 'Current Ratio', value: '1.5' },
-  ];
+  // Function to print the report
+  const handlePrint = useReactToPrint({
+    content: () => tableRef.current,
+    documentTitle: 'Company Production Report',
+  });
 
   return (
     <div className="d-flex flex-column">
-       <NavbarComponent /> 
-    <div className="d-flex flex-grow-1">
-      <Sidebar />
-    <div id="payment-table-container" className='col-xl-10 col-lg-9 col-md-6 col-sm-12'>
-                            <div id="payment-header" className='card-8 rounded-border mb-4'>
-                                <h1><i className="fa fa-chart-bar" style={{ fontSize: "30px" }}></i> Progress Report</h1>
-                                <hr />
-                            </div>
+      <NavbarComponent />
+      <div className="d-flex flex-grow-1">
+        <Sidebar />
+        <div id="report-table-container" className='col-xl-8 col-lg-9 col-md-6 col-sm-12'>
+          <div id="report-header" className='card-8 rounded-border mb-4'>
+            <h1><i className="fa fa-chart-bar" style={{ fontSize: "30px" }}></i> Company Production Report</h1>
+            <hr />
+          </div>
 
-      <div className="charts-container">
-        <div className="chart">
-          <Chart
-            options={progressData.sales.options}
-            series={progressData.sales.series}
-            type="pie"
-            width="400"
-          />
-          <h2>Sales Distribution</h2>
-        </div>
-        <div className="chart">
-          <Chart
-            options={progressData.expenses.options}
-            series={progressData.expenses.series}
-            type="pie"
-            width="400"
-          />
-          <h2>Expense Distribution</h2>
+          {/* Table for production reports */}
+          <div ref={tableRef}>
+            <table id="production-reports-table" className="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Product</th>
+                  <th>Units Produced</th>
+                  <th>Cost per Unit</th>
+                  <th>Total Cost</th>
+                  <th>Production Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {productionReports.map(report => (
+                  <tr key={report.id}>
+                    <td>{report.id}</td>
+                    <td>{report.product}</td>
+                    <td>{report.unitsProduced}</td>
+                    <td>{report.costPerUnit}</td>
+                    <td>{report.totalCost}</td>
+                    <td>{report.productionDate}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Buttons to download the report as PDF or print */}
+          <div className="mt-3">
+            <button onClick={downloadPDF} className="btn btn-primary mr-3">Download as PDF</button>
+            <button onClick={handlePrint} className="btn btn-secondary">Print Report</button>
+          </div>
         </div>
       </div>
-
-      
     </div>
-    </div>
-    </div>
-    
   );
 }
 

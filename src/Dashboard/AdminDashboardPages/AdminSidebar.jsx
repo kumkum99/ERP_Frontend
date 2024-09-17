@@ -4,6 +4,7 @@ import { FaUsers, FaHome, FaBox, FaShoppingBag, FaChartBar, FaMoneyBillWave, FaC
 import { Link } from 'react-router-dom';
 import './AdminSidebar.css';
 
+
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false); // State to track sidebar visibility
 

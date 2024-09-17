@@ -120,6 +120,9 @@ const EmpSidebar = () => {
           <Nav.Link as={Link} to="/employeeDocumentation">
             <FaFileAlt className="sidebar-icon" /> Documentation
           </Nav.Link>
+          <Nav.Link as={Link} to="/feedbackemp">
+            <FaFileAlt className="sidebar-icon" /> Feedback
+          </Nav.Link>
           <Nav.Link as={Link} to="/settings">
             <FaCog className="sidebar-icon" /> Settings
           </Nav.Link>

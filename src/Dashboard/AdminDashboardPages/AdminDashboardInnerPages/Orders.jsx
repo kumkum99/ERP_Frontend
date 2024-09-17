@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
-import { Col, Card } from 'react-bootstrap'; // Make sure you have react-bootstrap installed
-import { FaBox } from 'react-icons/fa'; // Make sure you have react-icons installed
+import { Col, Card } from 'react-bootstrap'; // Ensure react-bootstrap is installed
+import { FaBox } from 'react-icons/fa'; // Ensure react-icons is installed
 import './PagesCss.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
 import Sidebar from '../../AdminDashboardPages/AdminSidebar';
@@ -46,12 +46,26 @@ function Orders() {
   const [newPurchaseOrder, setNewPurchaseOrder] = useState({ item: '', quantity: '', date: '' });
   const [newSalesOrder, setNewSalesOrder] = useState({ item: '', quantity: '', date: '' });
 
+  useEffect(() => {
+    // Fetch existing sales orders from localStorage
+    const storedSalesOrders = JSON.parse(localStorage.getItem('salesOrders')) || [];
+    setSalesOrders(storedSalesOrders);
+  }, []);
+
+  
+  useEffect(() => {
+    // Fetch existing sales orders from localStorage
+    const storedPurchaseOrders = JSON.parse(localStorage.getItem('purchaseOrders')) || [];
+    setSalesOrders(storedPurchaseOrders);
+  }, []);
+
+
   // Handlers for purchase order input changes
   const handlePurchaseInputChange = (e) => {
     const { id, value } = e.target;
     setNewPurchaseOrder((prevOrder) => ({
       ...prevOrder,
-      [id]: value
+      [id]: value,
     }));
   };
 
@@ -60,35 +74,42 @@ function Orders() {
     const { id, value } = e.target;
     setNewSalesOrder((prevOrder) => ({
       ...prevOrder,
-      [id]: value
+      [id]: value,
     }));
   };
 
   // Add new purchase order
   const addPurchaseOrder = (e) => {
     e.preventDefault();
-    setPurchaseOrders([...purchaseOrders, newPurchaseOrder]);
+    const updatedPurchaseOrders=[...purchaseOrders, newPurchaseOrder];
+    setPurchaseOrders(updatedPurchaseOrders);
+    localStorage.setItem('purchaseOrders', JSON.stringify(updatedPurchaseOrders));
     setNewPurchaseOrder({ item: '', quantity: '', date: '' });
   };
 
   // Add new sales order
   const addSalesOrder = (e) => {
     e.preventDefault();
-    setSalesOrders([...salesOrders, newSalesOrder]);
+    const updatedSalesOrders = [...salesOrders, newSalesOrder];
+    setSalesOrders(updatedSalesOrders);
+    localStorage.setItem('salesOrders', JSON.stringify(updatedSalesOrders)); // Store in localStorage
     setNewSalesOrder({ item: '', quantity: '', date: '' });
   };
 
   // Dynamic order count for the card
   const orderCount = salesOrders.length;
+  const orderCounts = purchaseOrders.length;
 
   return (
     <div className="d-flex flex-column">
       <NavbarComponent />
       <div className="d-flex flex-grow-1">
         <Sidebar />
-        <div id="payment-table-container" className='col-xl-10 col-lg-9 col-md-6 col-sm-12'>
-          <div id="payment-header" className='card-8 rounded-border mb-4'>
-            <h1><i className="fa fa-shopping-bag" style={{ fontSize: "30px" }}></i> Orders Review</h1>
+        <div id="payment-table-container" className="col-xl-10 col-lg-9 col-md-6 col-sm-12">
+          <div id="payment-header" className="card-8 rounded-border mb-4">
+            <h1>
+              <i className="fa fa-shopping-bag" style={{ fontSize: '30px' }}></i> Orders Review
+            </h1>
             <hr />
           </div>
 
@@ -97,8 +118,19 @@ function Orders() {
             <Card className="text-center card-width card-orders">
               <Card.Body className="dashCard">
                 <FaBox size={40} />
-                <Card.Title className='mainCardText'>Orders</Card.Title>
-                <Card.Text className='CardTitle'>{orderCount}</Card.Text> {/* Dynamic order count */}
+                <Card.Title className="mainCardText">Orders</Card.Title>
+                <Card.Text className="CardTitle">{orderCount}</Card.Text> {/* Dynamic order count */}
+              </Card.Body>
+            </Card>
+          </Col>
+
+           {/* Card displaying the dynamic order count */}
+           <Col md={3} sm={6} className="mb-4">
+            <Card className="text-center card-width card-sales">
+              <Card.Body className="dashCard">
+                <FaBox size={40} />
+                <Card.Title className="mainCardText">Orders</Card.Title>
+                <Card.Text className="CardTitle">{orderCounts}</Card.Text> {/* Dynamic order count */}
               </Card.Body>
             </Card>
           </Col>
@@ -106,21 +138,11 @@ function Orders() {
           {/* Pie Charts for Orders */}
           <div className="charts-container">
             <div className="chart">
-              <Chart
-                options={dailyOrderData.options}
-                series={dailyOrderData.series}
-                type="pie"
-                width="400"
-              />
+              <Chart options={dailyOrderData.options} series={dailyOrderData.series} type="pie" width="400" />
               <h2>Daily Orders</h2>
             </div>
             <div className="chart">
-              <Chart
-                options={monthlyOrderData.options}
-                series={monthlyOrderData.series}
-                type="pie"
-                width="400"
-              />
+              <Chart options={monthlyOrderData.options} series={monthlyOrderData.series} type="pie" width="400" />
               <h2>Monthly Orders</h2>
             </div>
           </div>
@@ -145,13 +167,7 @@ function Orders() {
                 onChange={handlePurchaseInputChange}
                 required
               />
-              <input
-                type="date"
-                id="date"
-                value={newPurchaseOrder.date}
-                onChange={handlePurchaseInputChange}
-                required
-              />
+              <input type="date" id="date" value={newPurchaseOrder.date} onChange={handlePurchaseInputChange} required />
               <button type="submit">Add Purchase Order</button>
             </form>
 
@@ -196,13 +212,7 @@ function Orders() {
                 onChange={handleSalesInputChange}
                 required
               />
-              <input
-                type="date"
-                id="date"
-                value={newSalesOrder.date}
-                onChange={handleSalesInputChange}
-                required
-              />
+              <input type="date" id="date" value={newSalesOrder.date} onChange={handleSalesInputChange} required />
               <button type="submit">Add Sales Order</button>
             </form>
 

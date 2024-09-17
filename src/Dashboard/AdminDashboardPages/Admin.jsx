@@ -57,7 +57,7 @@ const Admin = () => {
                   <Card.Body className="dashCard">
                     <FaBox size={40} />
                     <Card.Title className='mainCardText'>Purchase Order</Card.Title>
-                    <Card.Text className='CardTitle'>{purchaseOrderCount}</Card.Text> {/* Dynamic purchase order count */}
+                    <Card.Text className="CardTitle">{purchaseOrderCount}</Card.Text> {/* Dynamic purchase order count */}
                   </Card.Body>
                 </Card>
               </Col>
@@ -68,7 +68,7 @@ const Admin = () => {
                   <Card.Body className="dashCard">
                     <FaChartLine size={40} />
                     <Card.Title className='mainCardText'>Sales</Card.Title>
-                    <Card.Text className='CardTitle'>{salesOrderCount}</Card.Text> {/* Dynamic sales order count */}
+                    <Card.Text className="CardTitle">{salesOrderCount}</Card.Text>  {/* Dynamic sales order count */}
                   </Card.Body>
                 </Card>
               </Col>

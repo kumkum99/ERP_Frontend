@@ -23,6 +23,7 @@ import CourseMaterial from './Dashboard/EmployeeDashboardPages/EmployeeInnerPage
 import EmployeeCourseProgress from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/EmployeeCourseProgress';
 import EmployeeDocumentation from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/EmployeeDocumentation';
 import SettingsPage from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/SettingsPage';
+import FeedbackEmp from './Dashboard/EmployeeDashboardPages/EmployeeInnerPages/FeedbackEmp';
 
 // admin Dashboard importation
 import Employees from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Employees';
@@ -31,7 +32,9 @@ import Orders from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Ord
 import Payment from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Payment';
 import Product from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Product';
 import Reports from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Reports';
-import Setting from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/Setting';
+import SettingPage from './Dashboard/AdminDashboardPages/AdminDashboardInnerPages/SettingPage';
+
+
 
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -59,6 +62,7 @@ function App() {
                             <Route path="/profile" element={<Profile />} />
                             <Route path="/attenLeave" element={<AttendanceLeave />} />
                             <Route path="/calendar" element={<Calendar />} />
+                            <Route path="/feedbackemp" element={<FeedbackEmp/>} />
                             <Route path="/shifts" element={<ShiftManagement />} />
                             <Route path="/workDeadline" element={<WorkDeadline />} />
                             <Route path="/employeeProgress" element={<EmployeeProgress />} />
@@ -72,7 +76,7 @@ function App() {
                             <Route path="/payments" element={<Payment />} />
                             <Route path="/products" element={<Product />} />
                             <Route path="/reports" element={<Reports />} />
-                            <Route path="/settingAdmin" element={<Setting />} />
+                            <Route path="/settingAdmin" element={<SettingPage />} />
                            
                         </Routes>
                     </Router>

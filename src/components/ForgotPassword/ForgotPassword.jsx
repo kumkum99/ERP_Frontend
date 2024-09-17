@@ -3,7 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import '../../App.css';
 
-
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -21,7 +20,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/send-reset-code",
+        "https://erpunity-production.up.railway.app/api/send-reset-code",
         { email },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -46,7 +45,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await axios.post(
-        "https://erpunity-production.up.railway.app/api/reset-password",
+        "http://localhost:5000/api/reset-password",
         { email, code, newPassword },
         { headers: { "Content-Type": "application/json" } }
       );

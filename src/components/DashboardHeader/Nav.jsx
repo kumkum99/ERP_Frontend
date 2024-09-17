@@ -118,10 +118,7 @@ const NavbarComponent = ({ bgColor }) => {
           <Nav.Link href="#email" className="nav-icon">
             <FaEnvelope size={20} />
           </Nav.Link>
-          <Nav.Link href="/settings" className="nav-icon">
-            <FaCog size={20} />
-          </Nav.Link>
-
+         
           <Nav.Link href="" className="nav-icon" onClick={toggleLogoutMenu} style={{ position: 'relative' }}>
             <FaUserCircle size={20} />
            
