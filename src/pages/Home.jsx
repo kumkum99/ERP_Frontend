@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import "../App.css";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
@@ -51,13 +52,13 @@ const HomeSection = () => {
                   </div>
                   <div className="btn-content_cta">
                     <div className="btn-cta_primary btn-no-border">
-                      <a
+                      <Link
                         title="Contact Us"
-                        href="/contact"
+                        to="/contact"
                         onClick={() => showSection("contact")}
                       >
                         Contact Us
-                      </a>
+                      </Link>
                     </div>
 
                     <div className="hero_content_cta_video-link modelbox_show">
@@ -135,9 +136,9 @@ const HomeSection = () => {
 
         <div className="editing">Enterprise Resource Planning</div>
         <div className="editbtn">
-          <a href="/login">
+          <Link to="/login">
             <button className="login-button">Login</button>
-          </a>
+          </Link>
         </div>
        
       </main>
