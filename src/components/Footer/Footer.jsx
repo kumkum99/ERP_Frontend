@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="link-boxes">
             <ul className="box">
               <li className="link_name">Company</li>
-                <li><a href="/">Home</a></li>
+                <li><Link to="/">Home</Link></li>
               <li><Link to="/contact">Contact us</Link></li>
               <li><Link to="/about">About us</Link></li>
               <li><Link to="/Services">Services</Link></li>
