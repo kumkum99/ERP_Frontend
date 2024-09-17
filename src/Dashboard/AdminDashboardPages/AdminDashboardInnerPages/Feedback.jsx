@@ -9,7 +9,7 @@ const Feedback = () => {
 
     const getdata = async () => {
         try {
-            const res = await fetch("http://localhost:8080/api/feedback", { // API endpoint for feedback data
+            const res = await fetch("https://erpunity-production.up.railway.app/feedback", { // API endpoint for feedback data
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
