@@ -40,7 +40,7 @@ const Login = () => {
 
       if (isValid) {
         alert("Welcome to Admin Dashboard");
-        window.location.href = "/adminDashboard";
+        window.location.href = "app/adminDashboard";
       } else {
         setErrorMessage("Invalid credentials, please try again.");
       }
@@ -63,7 +63,7 @@ const Login = () => {
       if (isValid) {
         localStorage.setItem("employeeName", Username); // Store the employee's name in local storage
         alert(`Welcome ${Username} to Employee Dashboard`);
-        window.location.href = "/employeeDashboard";
+        window.location.href = "app/employeeDashboard";
       } else {
         setErrorMessage("Invalid credentials, please try again.");
       }
