@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "../App.css";
 import ForgotPassword from '../components/ForgotPassword/ForgotPassword';
@@ -40,7 +40,7 @@ const Login = () => {
 
       if (isValid) {
         alert("Welcome to Admin Dashboard");
-        window.location.href = "/adminDashboard";
+        navigate('/adminDashboard');
       } else {
         setErrorMessage("Invalid credentials, please try again.");
       }
@@ -63,7 +63,7 @@ const Login = () => {
       if (isValid) {
         localStorage.setItem("employeeName", Username); // Store the employee's name in local storage
         alert(`Welcome ${Username} to Employee Dashboard`);
-        window.location.href = "/employeeDashboard";
+        window.location.href = "app/employeeDashboard";
       } else {
         setErrorMessage("Invalid credentials, please try again.");
       }
