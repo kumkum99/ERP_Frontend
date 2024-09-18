@@ -46,7 +46,7 @@ const Login = () => {
       }
     } catch (error) {
       console.error("Login failed", error);
-      setErrorMessage("An error occurred, please try again later.");
+      setErrorMessage("Select the Correct login type, please try again later.");
     }
   };
 
@@ -69,7 +69,7 @@ const Login = () => {
       }
     } catch (error) {
       console.error("Login failed", error);
-      setErrorMessage("An error occurred, please try again later.");
+      setErrorMessage("Select the Correct login type, please try again later.");
     }
   };
 

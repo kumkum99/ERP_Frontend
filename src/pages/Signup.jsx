@@ -43,7 +43,7 @@ const Signup = () => {
             navigate('/login');
         } catch (error) {
             console.error('Error:', error);
-            setError('An error occurred while registering the user.');
+            setError('User is Registered  Use the Different data.');
         } finally {
             setLoading(false);
         }

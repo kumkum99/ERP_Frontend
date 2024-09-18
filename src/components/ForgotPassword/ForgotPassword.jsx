@@ -60,7 +60,7 @@ const ForgotPassword = () => {
       if (error.response && error.response.data) {
         setErrorMessage(error.response.data);
       } else {
-        setErrorMessage("An unexpected error occurred. Please try again.");
+        setErrorMessage("OTP is expired and Wrong. Please try again.");
       }
       setMessage("");
     } finally {

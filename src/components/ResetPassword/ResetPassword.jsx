@@ -40,7 +40,7 @@ const ResetPassword = () => {
       if (error.response && error.response.data) {
         setErrorMessage(error.response.data);
       } else {
-        setErrorMessage("An error occurred. Please try again.");
+        setErrorMessage("ReEnter the Code . Please try again.");
       }
       setMessage("");
     } finally {
