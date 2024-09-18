@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isForgotPassword, setIsForgotPassword] = useState(false);
-  
+  const navigate = useNavigate(); 
   const handleLoginClick = () => {
     setIsLoginMode(true);
     resetForm();
@@ -63,7 +63,7 @@ const Login = () => {
       if (isValid) {
         localStorage.setItem("employeeName", Username); // Store the employee's name in local storage
         alert(`Welcome ${Username} to Employee Dashboard`);
-        window.location.href = "app/employeeDashboard";
+        navigate('/employeeDashboard');
       } else {
         setErrorMessage("Invalid credentials, please try again.");
       }
