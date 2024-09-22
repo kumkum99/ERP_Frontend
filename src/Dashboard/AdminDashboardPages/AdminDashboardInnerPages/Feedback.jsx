@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap'; 
 import './PagesCss.css';  
-import NavbarComponent from '../../../components/DashboardHeader/Nav';
+import NavAdmin from '../../../components/DashboardHeader/NavAdmin';
 import Sidebar from '../../AdminDashboardPages/AdminSidebar';
 
 const Feedback = () => {
@@ -36,7 +36,7 @@ const Feedback = () => {
     return (
         <>
             <div className="d-flex flex-column feedback-page">
-                <NavbarComponent />
+                <NavAdmin />
                 <div className="d-flex flex-grow-1">
                     <Sidebar />
                     <main className="flex-grow-1 p-4">

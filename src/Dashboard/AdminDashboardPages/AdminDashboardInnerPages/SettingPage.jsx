@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { GlobalSettingsContext } from "../../context/GlobalSettingsContext";
 import './PagesCss.css';
-import NavbarComponent from '../../../components/DashboardHeader/Nav';
+import NavAdmin from '../../../components/DashboardHeader/NavAdmin';
 import Sidebar from '../AdminSidebar'
 
 const SettingPage = () => {
@@ -14,13 +14,13 @@ const SettingPage = () => {
         changeFontColor,
         sidebarBgColor,
         changeSidebarBgColor,
-        navbarBgColor,
-        changeNavbarBgColor, // Add navbar background color handler
+        navAdminBgColor,
+        changeNavAdminBgColor, // Add navbar background color handler
       } = useContext(GlobalSettingsContext);
       
       return (
         <div className="d-flex flex-column">
-          <NavbarComponent bgColor={navbarBgColor} /> {/* Pass the navbar color */}
+          <NavAdmin bgColor={navAdminBgColor} /> {/* Pass the navbar color */}
           <div className="d-flex flex-grow-1">
             <Sidebar />
             <div id="settingsPageContainer">
@@ -79,12 +79,12 @@ const SettingPage = () => {
                 {/* Navbar Settings */}
                 <div id="navbarSettings">
                   <h3 id="navbarHeading">Navbar Settings</h3>
-                  <label htmlFor="navbarBgColorInput">Navbar Background Color</label>
+                  <label htmlFor="navAdminBgColorInput">Navbar Background Color</label>
                   <input
                     type="color"
                     id="navbarBgColorInput"
-                    value={navbarBgColor}
-                    onChange={(e) => changeNavbarBgColor(e.target.value)}
+                    value={navAdminBgColor}
+                    onChange={(e) => changeNavAdminBgColor(e.target.value)}
                   />
                 </div>
               </div>

@@ -45,7 +45,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/reset-password",
+        "https://erpunity-production.up.railway.app/api/reset-password",
         { email, code, newPassword },
         { headers: { "Content-Type": "application/json" } }
       );

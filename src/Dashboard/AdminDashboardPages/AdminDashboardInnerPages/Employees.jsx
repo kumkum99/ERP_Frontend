@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './PagesCss.css';  // Ensure this imports your CSS file
-import NavbarComponent from '../../../components/DashboardHeader/Nav';
+import NavAdmin from '../../../components/DashboardHeader/NavAdmin';
 import Sidebar from '../../AdminDashboardPages/AdminSidebar';
 import { Col, Card } from 'react-bootstrap';
 import { FaUsers } from 'react-icons/fa';
@@ -89,7 +89,7 @@ function Employees() {
 
   return (
     <div className="d-flex flex-column">
-      <NavbarComponent /> 
+      <NavAdmin /> 
       <div className="d-flex flex-grow-1">
         <Sidebar />
 

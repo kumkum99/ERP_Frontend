@@ -3,7 +3,7 @@ import Chart from 'react-apexcharts';
 import { Col, Card } from 'react-bootstrap'; // Ensure react-bootstrap is installed
 import { FaBox } from 'react-icons/fa'; // Ensure react-icons is installed
 import './PagesCss.css';
-import NavbarComponent from '../../../components/DashboardHeader/Nav';
+import NavAdmin from '../../../components/DashboardHeader/NavAdmin';
 import Sidebar from '../../AdminDashboardPages/AdminSidebar';
 
 function Orders() {
@@ -102,7 +102,7 @@ function Orders() {
 
   return (
     <div className="d-flex flex-column">
-      <NavbarComponent />
+      <NavAdmin />
       <div className="d-flex flex-grow-1">
         <Sidebar />
         <div id="payment-table-container" className="col-xl-10 col-lg-9 col-md-6 col-sm-12">

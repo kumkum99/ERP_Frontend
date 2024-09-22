@@ -1,15 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Navbar, Nav, Container, Form, FormControl } from 'react-bootstrap';
-import {FaCog, FaUserCircle, FaSearch } from 'react-icons/fa';
+import {FaEnvelope, FaUserCircle, FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom'; // For handling redirects
 import logo22 from '../../assets/images/logo22.jpg';
 import './Nav.css'; // Import the CSS file for custom styling
 import { GlobalSettingsContext } from "../../Dashboard/context/GlobalSettingsContext";
 
-const NavbarComponent = ({ bgColor }) => {
+const NavAdmin = ({ bgColor }) => {
   const { fontSize, fontColor } = useContext(GlobalSettingsContext);
   const [searchQuery, setSearchQuery] = useState('');
-  const [employeeName, setEmployeeName] = useState("");
   const [showLogout, setShowLogout] = useState(false); // New state for logout button visibility
   const navigate = useNavigate(); // To redirect to the homepage
 
@@ -68,13 +67,6 @@ const NavbarComponent = ({ bgColor }) => {
     return found;
   };
 
-  useEffect(() => {
-    const name = localStorage.getItem("employeeName");
-    if (name) {
-      setEmployeeName(name);
-    }
-  }, []);
-
   // Toggle logout menu visibility
   const toggleLogoutMenu = () => {
     setShowLogout((prevState) => !prevState);
@@ -115,14 +107,14 @@ const NavbarComponent = ({ bgColor }) => {
         </Form>
 
         <Nav className="ml-auto nav-icons">
-          <Nav.Link href="/settings" className="nav-icon">
-            <FaCog size={20} />
+          <Nav.Link href="#email" className="nav-icon">
+            <FaEnvelope size={20} />
           </Nav.Link>
          
           <Nav.Link href="" className="nav-icon" onClick={toggleLogoutMenu} style={{ position: 'relative' }}>
             <FaUserCircle size={20} />
            
-            {employeeName && <span style={{ marginLeft: "8px" }}>{employeeName}</span>}
+        Admin
             
             {/* Show the logout button when showLogout is true */}
             {showLogout && (
@@ -150,4 +142,4 @@ const NavbarComponent = ({ bgColor }) => {
   );
 };
 
-export default NavbarComponent;
+export default NavAdmin;

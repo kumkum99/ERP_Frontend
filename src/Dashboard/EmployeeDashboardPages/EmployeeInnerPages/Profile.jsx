@@ -1,59 +1,78 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './PagesCSS.css';
 import NavbarComponent from '../../../components/DashboardHeader/Nav';
 import EmpSidebar from '../EmployeeSidebar';
 import { GlobalSettingsContext } from '../../context/GlobalSettingsContext';
 
-
 const Profile = () => {
     const { darkMode, fontSize, fontColor } = useContext(GlobalSettingsContext);
-
-    // State to hold the employee profile information
+    
     const [profileInfo, setProfileInfo] = useState({
-        fullName: 'Kumkum Singh',
-        position: 'Frontend Developer',
-        company: 'Google LLC',
-        location: 'Mountain View, California, USA',
-        email: 'kumkum.singh@gmail.com',
-        phone: '+1 (123) 456-7890',
-        about: 'Kumkum Singh belongs to Uttar Pradesh, India. Passionate about design and user experience, Kumkum is constantly exploring new technologies to improve web development workflows and deliver outstanding user experiences.',
+        firstName: '',
+        lastName:'',
+        dob:'',
+        position: 'Frontend Developer', // Default or placeholder value
+        company: 'Google LLC', // Default or placeholder value
+        location: 'Lucknow, India', // Default or placeholder value
+        email: '',
+        phone: '',
+        password:'',
+        about: ' Hii ',
         profileImage: 'https://via.placeholder.com/100' // Default placeholder image
     });
 
-    // State for dynamic sections
-    const [skills, setSkills] = useState(["JavaScript", "React", "CSS", "HTML"]); // Initial skills
-    const [newSkill, setNewSkill] = useState(""); // To track the new skill input
-
+    const [skills, setSkills] = useState(["React", "SpringBoot"]);
+    const [newSkill, setNewSkill] = useState("");
     const [experience, setExperience] = useState([
         { jobTitle: "Frontend Developer", company: "Google", duration: "Jan 2022 - Present" },
         { jobTitle: "UI/UX Designer", company: "Facebook", duration: "Jul 2019 - Dec 2021" }
     ]);
     const [newExperience, setNewExperience] = useState({ jobTitle: "", company: "", duration: "" });
-
     const [achievements, setAchievements] = useState(["Awarded Employee of the Year 2023"]);
     const [newAchievement, setNewAchievement] = useState("");
-
-    const [education, setEducation] = useState([
-        { degree: "B.Tech in Computer Science", institution: "IIT Delhi", years: "2014-2018" }
-    ]);
+    const [education, setEducation] = useState([{ degree: "B.Tech in Computer Science", institution: "IIT Delhi", years: "2014-2018" }]);
     const [newEducation, setNewEducation] = useState({ degree: "", institution: "", years: "" });
-
     const [passwords, setPasswords] = useState({
         currentPassword: '',
         newPassword: '',
         confirmPassword: ''
     });
-
     const [activeTab, setActiveTab] = useState('overview');
 
-    // Handle form input changes for profile info
+    useEffect(() => {
+        // Retrieve data from local storage and update the state
+        const firstName = localStorage.getItem('employeeFirstName');
+        const lastName = localStorage.getItem('employeeLastName');
+        const dob = localStorage.getItem('employeeDob');
+        const email = localStorage.getItem('employeeEmail');
+        const phone = localStorage.getItem('employeePhone');
+        const password = localStorage.getItem('employeePassword');
+        const about = localStorage.getItem('employeeAbout') || `I am ${firstName} ${lastName} and belong to Uttar Pradesh, India. Passionate about design and user experience. ${firstName} ${lastName}  is constantly exploring new technologies to improve web development workflows and deliver outstanding user experiences.`; 
+        
+
+        
+         // Update the profileInfo state using the functional form to ensure it uses the latest state
+         setProfileInfo((prevState) => ({
+            ...prevState,
+            firstName,
+            lastName,
+            dob,
+            email,
+            phone,
+            password,
+            about
+        }));
+       
+  }, []);
+
+ // Handle form input changes for profile info
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setProfileInfo({ ...profileInfo, [name]: value });
     };
 
-    // Handle password changes
-    const handlePasswordChange = (e) => {
+      // Handle password changes
+      const handlePasswordChange = (e) => {
         const { name, value } = e.target;
         setPasswords({ ...passwords, [name]: value });
     };
@@ -70,6 +89,12 @@ const Profile = () => {
         }
     };
 
+    const handleSubmitProfile = (e) => {
+        e.preventDefault();
+        alert('Profile updated successfully!');
+        // Optionally, update local storage or send updated data to API
+    };
+
     // Add a new skill
     const handleAddSkill = () => {
         if (newSkill) {
@@ -77,6 +102,7 @@ const Profile = () => {
             setNewSkill(""); // Clear input after adding
         }
     };
+
 
     // Remove a skill
     const handleRemoveSkill = (skillToRemove) => {
@@ -86,7 +112,7 @@ const Profile = () => {
     // Handle experience input changes
     const handleExperienceInputChange = (e) => {
         const { name, value } = e.target;
-        setNewExperience({ ...newExperience, [name]: value });
+        setNewExperience({ ...newExperience, [{name}]: value });
     };
 
     // Add a new experience
@@ -119,10 +145,6 @@ const Profile = () => {
         }
     };
 
-    const handleSubmitProfile = (e) => {
-        e.preventDefault();
-        alert('Profile updated successfully!');
-    };
 
     const handleSubmitEmail = (e) => {
         e.preventDefault();
@@ -167,7 +189,7 @@ const Profile = () => {
                     <section className="profile-container">
                         <div className="profile-sidebar">
                             <div className="profile-card">
-                                <h5 className="profile-card-title">Welcome, {profileInfo.fullName}</h5>
+                                <h5 className="profile-card-title">Welcome, {profileInfo.firstName} {profileInfo.lastName}</h5>
                                 {/* Profile Image */}
                                 <label htmlFor="profile-image-upload">
                                     <img src={profileInfo.profileImage} alt="Profile" className="profile-picture" />
@@ -195,7 +217,7 @@ const Profile = () => {
                                 </div>
                             </div>
 
-                            {/* Skills Section */}
+                              {/* Skills Section */}
                             <div className="profile-card">
                                 <div className="profile-card-header">Skills</div>
                                 <div className="profile-card-body">
@@ -233,7 +255,11 @@ const Profile = () => {
                                     <tbody>
                                         <tr>
                                             <td><strong>Full Name:</strong></td>
-                                            <td>{profileInfo.fullName}</td>
+                                            <td>{profileInfo.firstName} {profileInfo.lastName}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>DOB:</strong></td>
+                                            <td>{profileInfo.dob}</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Position:</strong></td>
@@ -295,7 +321,7 @@ const Profile = () => {
                                 <form className="profile-form" onSubmit={handleSubmitProfile}>
                                     <div className="form-group">
                                         <label htmlFor="fullName">Full Name:</label>
-                                        <input type="text" id="fullName" name="fullName" className="form-control" placeholder="Enter full name" value={profileInfo.fullName} onChange={handleInputChange} />
+                                        <input type="text" id="fullName" name="fullName" className="form-control" placeholder="Enter full name" value={`${profileInfo.firstName || ''} ${profileInfo.lastName || ''}`}  onChange={handleInputChange} />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="position">Position:</label>
@@ -317,11 +343,15 @@ const Profile = () => {
                                         <label htmlFor="phone">Phone:</label>
                                         <input type="tel" id="phone" name="phone" className="form-control" placeholder="Enter phone number" value={profileInfo.phone} onChange={handleInputChange} />
                                     </div>
+                                    <div className="form-group">
+                                        <label htmlFor="email">Email:</label>
+                                        <input type="email" id="email" name="email" className="form-control" placeholder="Enter your email" value={profileInfo.email} onChange={handleInputChange} />
+                                    </div>
                                     <button type="submit" className="profile-btn">Save Changes</button>
                                 </form>
 
-                                {/* Experience Section in Profile */}
-                                <div className="form-group">
+                {/* Experience Section in Profile */}
+                <div className="form-group">
                                     <h5>Experience</h5>
                                     {experience.map((exp, index) => (
                                         <div key={index}>
@@ -407,7 +437,6 @@ const Profile = () => {
                                     </div>
                                 </div>
                             </div>
-
                             {/* Emails Tab */}
                             <div className={`profile-tab-content ${activeTab === 'emails' ? 'active' : ''}`} id="emails">
                                 <h5>Email Settings</h5>
@@ -424,13 +453,13 @@ const Profile = () => {
                                 </form>
                             </div>
 
-                            {/* Password Tab */}
-                            <div className={`profile-tab-content ${activeTab === 'password' ? 'active' : ''}`} id="password">
+                             {/* Password Tab */}
+                             <div className={`profile-tab-content ${activeTab === 'password' ? 'active' : ''}`} id="password">
                                 <h5>Change Password</h5>
                                 <form onSubmit={handleSubmitPassword}>
                                     <div className="form-group">
                                         <label htmlFor="current-password">Current Password:</label>
-                                        <input type="password" id="current-password" name="currentPassword" className="form-control" value={passwords.currentPassword} onChange={handlePasswordChange} />
+                                        <input type="password" id="current-password" name="currentPassword" className="form-control" value={profileInfo.password} onChange={handlePasswordChange} />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="new-password">New Password:</label>

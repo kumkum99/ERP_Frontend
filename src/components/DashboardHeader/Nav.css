@@ -1,7 +1,7 @@
 /* Navbar Styling */
 .navbar-custom {
   background-color: #818292 !important; /* Background color */
-  height: 75px; /* Set the height of the navbar */
+  height: 80px; /* Set the height of the navbar */
   position: -webkit-sticky; /* For Safari */
   position: sticky !important; /* For other browsers */
   top: 0; /* Stick the navbar to the top */
@@ -96,7 +96,7 @@
 @media (max-width: 576px) {
   .navbar-custom {
     padding: 10px;
-    height: auto; /* Adjust height for mobile */
+    height: 50px; /* Adjust height for mobile */
     flex-direction: column; /* Stack elements vertically */
   }
 

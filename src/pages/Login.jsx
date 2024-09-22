@@ -58,10 +58,17 @@ const Login = () => {
       const response = await axios.get(apiUrl);
       console.log("Response from API ", response);
 
-      const { isValid, Username } = response.data;
+      const { isValid, Username, FirstName, LastName, Dob, Email, Phone, Password } = response.data;
 
       if (isValid) {
         localStorage.setItem("employeeName", Username); // Store the employee's name in local storage
+        localStorage.setItem("employeeFirstName", FirstName);
+        localStorage.setItem("employeeLastName", LastName);
+        localStorage.setItem("employeeDob", Dob);
+        localStorage.setItem("employeeEmail", Email);
+        localStorage.setItem("employeePhone", Phone);
+        localStorage.setItem("employeePassword", Password);
+        
         alert(`Welcome ${Username} to Employee Dashboard`);
         navigate('/employeeDashboard');
       } else {

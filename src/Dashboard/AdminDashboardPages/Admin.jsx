@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { FaUsers, FaBox, FaChartLine, FaExclamationTriangle } from 'react-icons/fa';
 import Sidebar from './AdminSidebar'; // Adjust based on actual file location
-import NavbarComponent from '../../components/DashboardHeader/Nav';
+import NavAdmin from '../../components/DashboardHeader/NavAdmin';
 import './Admin.css'; // Ensure this path is correct and CSS file exists
 import Chart from './LineChart'; // Assuming this is a chart component
 import BarChart from './BarChart';
@@ -33,7 +33,7 @@ const Admin = () => {
 
   return (
     <div className="d-flex flex-column">
-      <NavbarComponent />
+      <NavAdmin />
       <div className="d-flex flex-grow-1">
         <Sidebar />
         <main className="flex-grow-1 p-4 main-containerAdmin">

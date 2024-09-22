@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import jsPDF from 'jspdf';
 import './PagesCss.css';
-import NavbarComponent from '../../../components/DashboardHeader/Nav';
+import NavAdmin from '../../../components/DashboardHeader/NavAdmin';
 import Sidebar from '../../AdminDashboardPages/AdminSidebar';
 
 function Reports() {
@@ -49,7 +49,7 @@ function Reports() {
 
   return (
     <div className="d-flex flex-column">
-      <NavbarComponent />
+      <NavAdmin />
       <div className="d-flex flex-grow-1">
         <Sidebar />
         <div id="report-table-container" className='col-xl-8 col-lg-9 col-md-6 col-sm-12'>
