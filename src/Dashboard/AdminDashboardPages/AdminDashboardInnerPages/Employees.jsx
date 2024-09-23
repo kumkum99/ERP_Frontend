@@ -99,16 +99,7 @@ function Employees() {
             <hr />
           </div>
 
-          {/* Card Displaying Employee Count */}
-          <Col md={3} sm={6} className="mb-4">
-            <Card className="text-center card-width card-employees">
-              <Card.Body className="dashCard">
-                <FaUsers size={40} />
-                <Card.Title className='mainCardText'>Employees</Card.Title>
-                <Card.Text className='CardTitle'>{employees.length}</Card.Text> {/* Dynamic employee count */}
-              </Card.Body>
-            </Card>
-          </Col>
+          
 
           {/* Add Employee Form */}
           <form id="employee-form" onSubmit={handleSubmit}>

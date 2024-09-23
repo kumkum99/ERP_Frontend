@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { FaUsers, FaBox, FaChartLine, FaExclamationTriangle } from 'react-icons/fa';
+import { FaUsers, FaBox, FaChartLine, FaMoneyBillWave } from 'react-icons/fa';
 import Sidebar from './AdminSidebar'; // Adjust based on actual file location
 import NavAdmin from '../../components/DashboardHeader/NavAdmin';
 import './Admin.css'; // Ensure this path is correct and CSS file exists
@@ -9,26 +9,22 @@ import BarChart from './BarChart';
 
 const Admin = () => {
   const [employeeCount, setEmployeeCount] = useState(0);
-  const [purchaseOrderCount, setPurchaseOrderCount] = useState(0); // Dynamic value for purchase orders
-  const [salesOrderCount, setSalesOrderCount] = useState(0); // Dynamic value for sales orders
-  const [alertCount, setAlertCount] = useState(0); // Dynamic value for alerts
+  const [purchaseOrderCount, setPurchaseOrderCount] = useState(0);
+  const [productCount, setProductCount] = useState(0); // Changed from salesOrderCount to productCount
+  const [paymentCount, setPaymentCount] = useState(0); // Dynamic value for payments
 
   useEffect(() => {
-    // Fetching employee data from localStorage
     const employees = JSON.parse(localStorage.getItem('userProfile')) || [];
     setEmployeeCount(employees.length);
 
-    // Fetching purchase orders from localStorage
     const purchaseOrders = JSON.parse(localStorage.getItem('purchaseOrders')) || [];
-    setPurchaseOrderCount(purchaseOrders.length); // Update purchase order count
+    setPurchaseOrderCount(purchaseOrders.length);
 
-    // Fetching sales orders from localStorage
-    const salesOrders = JSON.parse(localStorage.getItem('salesOrders')) || [];
-    setSalesOrderCount(salesOrders.length); // Update sales order count
+    const products = JSON.parse(localStorage.getItem('productData')) || []; // Fetch product data
+    setProductCount(products.length); // Update product count
 
-    // Fetching alerts data dynamically from localStorage
-    const alerts = JSON.parse(localStorage.getItem('alerts')) || [];
-    setAlertCount(alerts.length);
+    const payments = JSON.parse(localStorage.getItem('payments')) || []; // Assuming payments are stored here
+    setPaymentCount(payments.length);
   }, []);
 
   return (
@@ -46,7 +42,7 @@ const Admin = () => {
                   <Card.Body className="dashCard">
                     <FaUsers size={40} />
                     <Card.Title className='mainCardText'>Employees</Card.Title>
-                    <Card.Text className='CardTitle'>{employeeCount}</Card.Text> {/* Dynamic employee count */}
+                    <Card.Text className='CardTitle'>{employeeCount}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -56,30 +52,30 @@ const Admin = () => {
                 <Card className="text-center card-width card-orders">
                   <Card.Body className="dashCard">
                     <FaBox size={40} />
-                    <Card.Title className='mainCardText'>Purchase Order</Card.Title>
-                    <Card.Text className="CardTitle">{purchaseOrderCount}</Card.Text> {/* Dynamic purchase order count */}
+                    <Card.Title className='mainCardText'>Order</Card.Title>
+                    <Card.Text className="CardTitle">{purchaseOrderCount}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
 
-              {/* Dynamic Sales Orders Card */}
+              {/* Dynamic Products Card */}
               <Col md={3} sm={6} className="mb-4">
-                <Card className="text-center card-width card-sales">
+                <Card className="text-center card-width card-products">
                   <Card.Body className="dashCard">
-                    <FaChartLine size={40} />
-                    <Card.Title className='mainCardText'>Sales</Card.Title>
-                    <Card.Text className="CardTitle">{salesOrderCount}</Card.Text>  {/* Dynamic sales order count */}
+                    <FaBox size={40} />
+                    <Card.Title className='mainCardText'>Products</Card.Title>
+                    <Card.Text className="CardTitle">{productCount}</Card.Text> {/* Updated from salesOrderCount */}
                   </Card.Body>
                 </Card>
               </Col>
 
-              {/* Dynamic Alert Card */}
+              {/* Dynamic Payment Card */}
               <Col md={3} sm={6} className="mb-4">
-                <Card className="text-center card-width card-alert">
+                <Card className="text-center card-width card-payment" style={{ backgroundColor: '#87CEEB' }}>
                   <Card.Body className="dashCard">
-                    <FaExclamationTriangle size={40} />
-                    <Card.Title className='mainCardText'>Alert</Card.Title>
-                    <Card.Text className='CardTitle'>{alertCount}</Card.Text> {/* Dynamic alert count */}
+                    <FaMoneyBillWave size={40} />
+                    <Card.Title className='mainCardText'>Payments</Card.Title>
+                    <Card.Text className='CardTitle'>{paymentCount}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>

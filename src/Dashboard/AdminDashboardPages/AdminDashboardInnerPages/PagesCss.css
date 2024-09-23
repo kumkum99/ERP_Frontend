@@ -1,129 +1,138 @@
+
+/* Employee Management */
 #employee-management {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    max-width: 70px;
-    margin-left: 370px;
-  }
-  
-  #form-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  #employee-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  #img-holder {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  #profile-pic {
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid #ddd;
-  }
-  
-  .upload-label {
-    cursor: pointer;
-    color: #0066cc;
-    font-weight: bold;
-  }
-  
-  .input-field {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-field label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .input-text {
-    padding: 10px;
-    border: 1px solid #969595;
-    border-radius: 4px;
-  }
-  
-  #submit-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #092542;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  #submit-btn:hover {
-    background-color: #005bb5;
-  }
-  
-  #employee-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-  }
-  
-  #employee-table th,
-  #employee-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-  }
-  
-  .table-row:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .table-img {
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .action-btn {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 5px;
-    cursor: pointer;
-  }
-  
-  .view-btn {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  .edit-btn {
-    background-color: #ffa500;
-    color: white;
-  }
-  
-  .delete-btn {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  .action-btn:hover {
-    opacity: 0.8;
-  }
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  max-width: 100%;
+}
 
+#form-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
 
+#employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+#img-holder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+#profile-pic {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.upload-label {
+  cursor: pointer;
+  color: #0066cc;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-field label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-text {
+  padding: 10px;
+  border: 1px solid #969595;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #092542;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+#submit-btn:hover {
+  background-color: #005bb5;
+}
+
+/* Employee Table */
+#employee-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+#employee-table th,
+#employee-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.table-row:hover {
+  background-color: #f1f1f1;
+}
+
+.table-img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Action Buttons */
+.action-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.view-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.edit-btn {
+  background-color: #ffa500;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.action-btn:hover {
+  opacity: 0.8;
+}
+
+/* Payment Page */
 #payment-page {
-  background-color: #f8f9fa; /* Light background color for the whole page */
-  min-height: 100vh; /* Ensure the page takes full viewport height */
+  background-color: #f8f9fa;
+  min-height: 100vh;
 }
 
 #sidebar-container {
@@ -133,12 +142,11 @@
 
 #main-content {
   padding: 2rem;
-  background-color: #ffffff; /* White background for the main content area */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  margin-left: 1rem; /* Space between sidebar and main content */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 1rem;
 }
-/*payment*/
 
 #payment-table-container {
   width: 60%;
@@ -147,7 +155,7 @@
 
 #payment-header {
   padding: 1rem;
-  background-color: #092542; /* Bootstrap primary color */
+  background-color: #092542;
   color: white;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -159,14 +167,14 @@
 }
 
 #payment-table-card {
-  background-color: #ffffff; /* White background for the table card */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #payment-table {
   width: 100%;
-  border-collapse: collapse; /* Collapse table borders */
+  border-collapse: collapse;
 }
 
 #payment-table th, #payment-table td {
@@ -175,95 +183,45 @@
 }
 
 #payment-table th {
-  background-color: #f1f1f1; /* Light grey background for table headers */
-  color: #333; /* Dark text color for contrast */
+  background-color: #f1f1f1;
+  color: #333;
 }
 
 #payment-table tr:nth-child(even) {
-  background-color: #f9f9f9; /* Alternating row colors */
-}
-
-#payment-table tr:hover {
-  background-color: #f1f1f1; /* Highlight row on hover */
-}
-
-
-.admin-dashboard {
-  padding: 20px;
-  background-color: #f4f4f4;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
-}
-
-th {
-  background-color: #007bff;
-  color: white;
-}
-
-tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-tr:nth-child(odd) {
-  background-color: #fff;
+#payment-table tr:hover {
+  background-color: #f1f1f1;
 }
 
-td {
-  vertical-align: middle;
-}
-
-.progress-bar {
-  width: 100%;
-  background-color: #ddd;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.progress-bar-fill {
-  height: 20px;
-  background-color: #4caf50;
-  transition: width 0.3s ease;
-}
-
-/* Special styling for payment rows using IDs */
+/* Special Payment Row Styles */
 #payment-P001 {
-  background-color: #e0ffe0; /* Light green for completed payments */
+  background-color: #e0ffe0;
 }
 
 #payment-P002 {
-  background-color: #ffffe0; /* Light yellow for pending payments */
+  background-color: #ffffe0;
 }
 
 #payment-P003 {
-  background-color: #ffe0e0; /* Light red for failed payments */
+  background-color: #ffe0e0;
 }
 
-
-/* Product.css */
-
+/* Products */
 #product-table-container {
   padding: 20px;
   background-color: #f9f9f9;
   margin-left: 370px;
-  width: 70%;
+  width: 100%;
 }
 
 #product-header {
   padding: 1rem;
-    background-color: #092542;
-    color: white;
-    border-radius: 6px;
-    margin-bottom: 1rem;
+  background-color: #092542;
+  color: white;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
 #product-form {
@@ -272,39 +230,6 @@ td {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.input-field {
-  margin-bottom: 15px;
-}
-
-.input-field label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.input-text {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #969595;
-  border-radius: 5px;
-  box-sizing: border-box;
-  
-}
-
-#submit-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #092542;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-#submit-btn:hover {
-  background-color: #0056b3;
 }
 
 #product-table {
@@ -342,30 +267,14 @@ td {
   color: white;
 }
 
-.view-btn:hover {
-  background-color: #218838;
-}
-
 .edit-btn {
   background-color: #ffc107;
   color: white;
 }
 
-.edit-btn:hover {
-  background-color: #e0a800;
-}
-
 .delete-btn {
   background-color: #dc3545;
   color: white;
-}
-
-.delete-btn:hover {
-  background-color: #c82333;
-}
-
-#profile-pic {
-  border-radius: 50%;
 }
 
 #img-holder {
@@ -376,18 +285,12 @@ td {
 .upload-label {
   display: block;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   color: #007bff;
 }
 
-.upload-label i {
-  font-size: 20px;
-  margin-right: 5px;
-}
-
-/* Orders */
-
-.orders-page {
+/* Orders Page */
+#orders-page {
   padding: 20px;
   background-color: #f9f9f9;
   margin-left: 370px;
@@ -428,24 +331,17 @@ td {
   background-color: #f2f2f2;
 }
 
-/* Report */
-
-/* PagesCss.css */
-#report-table-container{
+/* Reports */
+#report-table-container {
   margin-left: 400px;
-  
-}
-#report-table-container{
-padding:5px;
+  padding: 5px;
 }
 
-/* Feedback*/
-
-.feedback-page {
+/* Feedback Page */
+#feedback-page {
   background-color: #f8f9fa;
   height: 100vh;
   border-radius: 30%;
-  
 }
 
 .feedback-header {
@@ -461,6 +357,10 @@ padding:5px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-left: 350px;
+}
+
+.table-responsive {
+  overflow-x: auto;
 }
 
 .table {
@@ -487,74 +387,168 @@ padding:5px;
   background-color: #e0e0e0;
 }
 
-.table-responsive {
-  overflow-x: auto;
+/* Admin Settings */
+#settingsPageContainer {
+  margin: 20px;
+  margin-left: 450px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+#settingsHeading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#settingsOptions {
+  display: flex;
+  flex-direction: column;
+}
+
+#themeSettings,
+#fontSettings,
+#sidebarSettings {
+  margin-bottom: 20px;
+}
+
+input[type="range"],
+select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Large screens (desktops) */
+@media (min-width: 992px) {
+  #employee-management,
+  #product-table-container,
+  #orders-page,
+  #report-table-container,
+  #salary-slip-table-container,
+  #feedback-container,
+  #settingsPageContainer {
+    max-width: 70%;
+  }
+
+  #product-table-container {
+    margin-left: 370px;
+    width: 60%;
+  }
+
+  #orders-page,
+  #report-table-container,
+  #settingsPageContainer {
+    margin-left: 400px;
+  }
+}
+
+/* Tablets and small screens */
 @media (max-width: 768px) {
-  .feedback-container {
-      padding: 10px;
+  #employee-management,
+  #product-table-container,
+  #orders-page,
+  #report-table-container,
+  #salary-slip-table-container {
+    margin-left: 20px;
+    width: 90%;
+  }
+
+  .feedback-container,
+  #employee-form,
+  #product-form,
+  #settingsPageContainer {
+    padding: 10px;
+  }
+
+  .upload-label {
+    font-size: 12px;
+  }
+
+  .input-text {
+    padding: 8px;
+  }
+
+  #submit-btn {
+    padding: 10px;
+  }
+
+  #product-table th,
+  #product-table td,
+  .table th,
+  .table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .progress-bar {
+    height: 15px;
+  }
+}
+
+/* Small mobile screens (max-width 480px) */
+@media (max-width: 480px) {
+  #employee-management,
+  #product-table-container,
+  #orders-page,
+  #report-table-container,
+  #salary-slip-table-container {
+    margin-left: 10px;
+    width: 100%;
+  }
+
+  #form-title {
+    font-size: 1.2rem;
+  }
+
+  .upload-label i {
+    font-size: 16px;
+  }
+
+  #submit-btn {
+    font-size: 12px;
+    padding: 8px;
   }
 
   .table th, .table td {
-      font-size: 14px;
-      padding: 8px;
-  }
-
-  .feedback-header {
-      font-size: 24px;
+    padding: 6px;
   }
 }
-
-/* AdminSettings */
-
- /* Setting */
-  /* Settings Page Container */
-  #settingsPageContainer {
-    margin: 20px;
-    margin-left: 450px;
-    padding: 20px;
-    border: 1px solid #ddd !important;
-    border-radius: 8px !;
-    background-color: #f9fafb !;
-    width: 600px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-  }
-  
-  #settingsHeading {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  #settingsOptions {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #themeSettings,
-  #fontSettings,
-  #sidebarSettings {
-    margin-bottom: 20px;
-  }
-  
-  /* General input styles */
-  input[type="range"],
-  input[type="color"] {
+@media (max-width: 480px) {
+  #employee-management,
+  #product-table-container,
+  #orders-page,
+  #report-table-container,
+  #salary-slip-table-container {
     margin-left: 10px;
+    width: 100%;
   }
 
-  @media (max-width: 480px) {
-    #settingsPageContainer {
-      margin: 10px;
-      margin-left: 2px;
-      padding: 20px;
-      border: 1px solid #ddd !important;
-      border-radius: 8px !;
-      background-color: #f9fafb !;
-      width: 900px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  #form-title {
+    font-size: 1.2rem;
+  }
+
+  .upload-label i {
+    font-size: 16px;
+  }
+
+  #submit-btn {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .table th, .table td {
+    padding: 6px;
   }
 }
-
-/* order page css */
-

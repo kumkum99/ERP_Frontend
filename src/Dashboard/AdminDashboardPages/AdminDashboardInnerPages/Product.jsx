@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import './PagesCss.css';  // Ensure this imports your CSS file
 import NavAdmin from '../../../components/DashboardHeader/NavAdmin';
 import Sidebar from '../../AdminDashboardPages/AdminSidebar';
+import { Col, Card } from 'react-bootstrap';
+import { FaBox } from 'react-icons/fa';
 
 function Product() {
   const [products, setProducts] = useState(JSON.parse(localStorage.getItem('productData')) || []);
@@ -15,6 +17,7 @@ function Product() {
   const [isEditing, setIsEditing] = useState(false);
   const [editIndex, setEditIndex] = useState(null);
 
+  // Sync products to localStorage
   useEffect(() => {
     localStorage.setItem('productData', JSON.stringify(products));
   }, [products]);
@@ -67,12 +70,14 @@ function Product() {
       <NavAdmin />
       <div className="d-flex flex-grow-1">
         <Sidebar />
-        
+
         <div id="product-table-container" className='col-xl-10 col-lg-9 col-md-6 col-sm-12'>
           <div id="product-header" className='card-8 rounded-border mb-4'>
             <h1><i className="fa fa-box" style={{ fontSize: "30px" }}></i> Product Management</h1>
             <hr />
           </div>
+
+          
 
           {/* Add Product Form */}
           <form id="product-form" onSubmit={handleSubmit}>

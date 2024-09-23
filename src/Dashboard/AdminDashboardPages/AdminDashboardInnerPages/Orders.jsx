@@ -47,18 +47,13 @@ function Orders() {
   const [newSalesOrder, setNewSalesOrder] = useState({ item: '', quantity: '', date: '' });
 
   useEffect(() => {
-    // Fetch existing sales orders from localStorage
+    // Fetch existing purchase and sales orders from localStorage
     const storedSalesOrders = JSON.parse(localStorage.getItem('salesOrders')) || [];
-    setSalesOrders(storedSalesOrders);
-  }, []);
-
-  
-  useEffect(() => {
-    // Fetch existing sales orders from localStorage
     const storedPurchaseOrders = JSON.parse(localStorage.getItem('purchaseOrders')) || [];
-    setSalesOrders(storedPurchaseOrders);
+    
+    setSalesOrders(storedSalesOrders);
+    setPurchaseOrders(storedPurchaseOrders);
   }, []);
-
 
   // Handlers for purchase order input changes
   const handlePurchaseInputChange = (e) => {
@@ -81,7 +76,7 @@ function Orders() {
   // Add new purchase order
   const addPurchaseOrder = (e) => {
     e.preventDefault();
-    const updatedPurchaseOrders=[...purchaseOrders, newPurchaseOrder];
+    const updatedPurchaseOrders = [...purchaseOrders, newPurchaseOrder];
     setPurchaseOrders(updatedPurchaseOrders);
     localStorage.setItem('purchaseOrders', JSON.stringify(updatedPurchaseOrders));
     setNewPurchaseOrder({ item: '', quantity: '', date: '' });
@@ -92,13 +87,9 @@ function Orders() {
     e.preventDefault();
     const updatedSalesOrders = [...salesOrders, newSalesOrder];
     setSalesOrders(updatedSalesOrders);
-    localStorage.setItem('salesOrders', JSON.stringify(updatedSalesOrders)); // Store in localStorage
+    localStorage.setItem('salesOrders', JSON.stringify(updatedSalesOrders));
     setNewSalesOrder({ item: '', quantity: '', date: '' });
   };
-
-  // Dynamic order count for the card
-  const orderCount = salesOrders.length;
-  const orderCounts = purchaseOrders.length;
 
   return (
     <div className="d-flex flex-column">
@@ -113,28 +104,6 @@ function Orders() {
             <hr />
           </div>
 
-          {/* Card displaying the dynamic order count */}
-          <Col md={3} sm={6} className="mb-4">
-            <Card className="text-center card-width card-orders">
-              <Card.Body className="dashCard">
-                <FaBox size={40} />
-                <Card.Title className="mainCardText">Orders</Card.Title>
-                <Card.Text className="CardTitle">{orderCount}</Card.Text> {/* Dynamic order count */}
-              </Card.Body>
-            </Card>
-          </Col>
-
-           {/* Card displaying the dynamic order count */}
-           <Col md={3} sm={6} className="mb-4">
-            <Card className="text-center card-width card-sales">
-              <Card.Body className="dashCard">
-                <FaBox size={40} />
-                <Card.Title className="mainCardText">Orders</Card.Title>
-                <Card.Text className="CardTitle">{orderCounts}</Card.Text> {/* Dynamic order count */}
-              </Card.Body>
-            </Card>
-          </Col>
-
           {/* Pie Charts for Orders */}
           <div className="charts-container">
             <div className="chart">
@@ -147,9 +116,11 @@ function Orders() {
             </div>
           </div>
 
+         
+
           {/* Purchase Order Form */}
           <div className="orders-section">
-            <h2>Purchase Orders</h2>
+            <h2> Orders</h2>
             <form onSubmit={addPurchaseOrder}>
               <input
                 type="text"
@@ -168,7 +139,7 @@ function Orders() {
                 required
               />
               <input type="date" id="date" value={newPurchaseOrder.date} onChange={handlePurchaseInputChange} required />
-              <button type="submit">Add Purchase Order</button>
+              <button type="submit">Add Order details</button>
             </form>
 
             {/* Purchase Order Table */}
@@ -191,55 +162,10 @@ function Orders() {
               </tbody>
             </table>
           </div>
-
-          {/* Sales Order Form */}
-          <div className="orders-section">
-            <h2>Sales Orders</h2>
-            <form onSubmit={addSalesOrder}>
-              <input
-                type="text"
-                id="item"
-                placeholder="Item"
-                value={newSalesOrder.item}
-                onChange={handleSalesInputChange}
-                required
-              />
-              <input
-                type="number"
-                id="quantity"
-                placeholder="Quantity"
-                value={newSalesOrder.quantity}
-                onChange={handleSalesInputChange}
-                required
-              />
-              <input type="date" id="date" value={newSalesOrder.date} onChange={handleSalesInputChange} required />
-              <button type="submit">Add Sales Order</button>
-            </form>
-
-            {/* Sales Order Table */}
-            <table>
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Quantity</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                {salesOrders.map((order, index) => (
-                  <tr key={index}>
-                    <td>{order.item}</td>
-                    <td>{order.quantity}</td>
-                    <td>{order.date}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default Orders;
+ export default Orders;
