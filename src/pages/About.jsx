@@ -87,9 +87,9 @@ const About = () => {
                             <h3>Sumit Pandey</h3>
                             <h4>Team Member</h4>
                             <div className="team-social">
-                                <a className="btn btn-square" href="#"><i className="fab fa-linkedin-in"></i></a>
-                                <a className="btn btn-square" href="#"><i className="fa-brands fa-github"></i></a>
-                                <a className="btn btn-square" href="#"><i className="fa-solid fa-user"></i></a>
+                                <a className="btn btn-square" href="https://www.linkedin.com/in/sumit-pandey-4b6976309"><i className="fab fa-linkedin-in"></i></a>
+                                <a className="btn btn-square" href="https://github.com/sumit10-08"><i className="fa-brands fa-github"></i></a>
+                                <a className="btn btn-square" href=""><i className="fa-solid fa-user"></i></a>
                             </div>
                         </div>
                         <div className="team-member">
