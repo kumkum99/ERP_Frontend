@@ -10,7 +10,7 @@ import sandhyaImage from '../assets/images/sandhya.jfif';
 import rohitImage from '../assets/images/rohit.jfif';
 import kumkumImage from '../assets/images/Kumkum.jpeg';
 import sumitImage from '../assets/images/sumit.jpg';
-import monikaImage from '../assets/images/monika.jpg';
+import monikaPImage from '../assets/images/monikaP.jpeg';
 import sauravImage from '../assets/images/saurav.jpg';
 
 const About = () => {
@@ -93,7 +93,7 @@ const About = () => {
                             </div>
                         </div>
                         <div className="team-member">
-                            <img src={monikaImage} alt="Team Member 3" />
+                            <img src={monikaPImage} alt="Team Member 3" />
                             <h3>Monika Pandey</h3>
                             <h4>Team Member</h4>
                             <div className="team-social">
