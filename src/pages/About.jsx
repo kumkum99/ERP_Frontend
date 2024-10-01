@@ -12,11 +12,7 @@ import sandhyaImage from '../assets/images/sandhya.jfif';
 import rohitImage from '../assets/images/rohit.jfif';
 import kumkumImage from '../assets/images/Kumkum.jpeg';
 import sumitImage from '../assets/images/sumit.jpg';
-<<<<<<< HEAD
 import monika1Image from '../assets/images/monika1.jpeg';
-=======
-import monikaPImage from '../assets/images/monikaP.jpeg';
->>>>>>> a272d591f378ce49af580c3b3677f30eddddfea5
 import sauravImage from '../assets/images/saurav.jpg';
 import leftArrow from '../assets/images/left-arrow.png'; // Adding arrow images
 import rightArrow from '../assets/images/right-arrow.png';
@@ -141,7 +137,6 @@ const About = () => {
                   <a className="btn btn-square" href="https://github.com/kumkum99"><i className="fa-brands fa-github"></i></a>
                   <a className="btn btn-square" href="https://kumkum99.github.io/em-1portfolio/"><i className="fa-solid fa-user"></i></a>
                 </div>
-<<<<<<< HEAD
               </div>
               <div className="team-member">
                 <img src={sumitImage} alt="Team Member 2" />
@@ -175,7 +170,6 @@ const About = () => {
               </div>
             </div>
           </section>
-=======
 
                 <section className="ServicesIdea">
                     <div className="serviceImage">
