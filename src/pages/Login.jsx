@@ -30,7 +30,7 @@ const Login = () => {
   // Function to handle admin login with static credentials
   const handleAdminLogin = async () => {
    
-    const apiUrl = `https://erpunity-production.up.railway.app/admin/login?email=${email}&password=${password}`;
+    const apiUrl = `https://erpunity-production.up.railway.app/api/admin/login?email=${email}&password=${password}`;
 
     try {
       const response = await axios.get(apiUrl);

@@ -27,6 +27,7 @@ const handleSubmit = async (event) => {
 
     if (response.ok) {
       alert('Form submitted successfully');
+      event.target.reset(); // Clear the input fields after successful submission
     } else {
       alert('Form submission failed');
     }
@@ -147,20 +148,20 @@ const FormSection = () => {
               <option value="">Select your country</option>
               <option value="country1">India</option>
               <option value="usa">United States</option>
-  <option value="japan">Japan</option>
-  <option value="germany">Germany</option>
-  <option value="uk">United Kingdom</option>
-  <option value="france">France</option>
-  <option value="south-korea">South Korea</option>
-  <option value="australia">Australia</option>
-  <option value="canada">Canada</option>
-  <option value="china">China</option>
-  <option value="russia">Russia</option>
-  <option value="singapore">Singapore</option>
-  <option value="uae">United Arab Emirates</option>
-  <option value="saudi-arabia">Saudi Arabia</option>
-  <option value="israel">Israel</option>
-  <option value="brazil">Brazil</option>
+              <option value="japan">Japan</option>
+              <option value="germany">Germany</option>
+              <option value="uk">United Kingdom</option>
+              <option value="france">France</option>
+              <option value="south-korea">South Korea</option>
+              <option value="australia">Australia</option>
+              <option value="canada">Canada</option>
+              <option value="china">China</option>
+              <option value="russia">Russia</option>
+              <option value="singapore">Singapore</option>
+              <option value="uae">United Arab Emirates</option>
+              <option value="saudi-arabia">Saudi Arabia</option>
+              <option value="israel">Israel</option>
+              <option value="brazil">Brazil</option>
             </select>
           </div>
           <div className="form-group">
@@ -187,10 +188,10 @@ const MapSection = () => {
     <div>
       <section className="map-container">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14013.256972160563!2d77.3115001!3d28.5903482!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4f48ccfdc81%3A0x23b82756bfac9089!2sNational%20Skill%20Training%20Institute%20for%20Women!5e0!3m2!1sen!2sin!4v1721584925063!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1754.299804478743!2d77.380019!3d28.654352!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfbdbb479edab%3A0x5b50df1d02a411fc!2sNational%20Skill%20Training%20Institute%2C%20Noida!5e0!3m2!1sen!2sin!4v1688951289255!5m2!1sen!2sin"
           width="600"
           height="450"
-          style={{ border: 0 }}
+          style={{ border: '0' }}
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
